@@ -39,8 +39,8 @@ class ListOffer(generics.ListCreateAPIView):
     An APIView to list all Offers or create an Offer.
     """
     serializer_class = OfferSerializer
-
-    
+    queryset = List.objects.all()
+    """
     def perform_create(self, serializer):
         try:
             serializer.save(todo_list=List.objects.get(pk=self.kwargs['pk']))
@@ -50,7 +50,7 @@ class ListOffer(generics.ListCreateAPIView):
     def get_queryset(self):
         list = get_object_or_404(List.objects.all(), pk=self.kwargs['pk'])
         return list.task_set.all() 
-        
+    """    
 class OfferDetail(generics.RetrieveUpdateDestroyAPIView):
     """
     An APIView to retrive, update or delete a specific Offer.
