@@ -39,6 +39,7 @@ class User(models.Model):
     phone = models.CharField(max_length=128, blank=False)
     adress = models.CharField(max_length=128, blank=False)
     description = models.TextField(blank=True)
+    email = models.CharField(max_length=128, blank=False)
 
     def __unicode__(self):
         return self.name
