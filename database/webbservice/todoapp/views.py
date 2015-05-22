@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from todoapp.models import Need, Offer, User
-from todoapp.serializers import NeedSerializer, UserSerializer, OfferSerializer
+from todoapp.serializers import NeedSerializer, UserSerializer, OfferSerializer, UserDetailSerializer, UserOfferListSerializer, UserNeedListSerializer, OfferDetailSerializer, OfferCategorySerializer, NeedDetailSerializer, NeedCategorySerializer
 from rest_framework.views import APIView
 from rest_framework import generics, permissions
 from django.shortcuts import get_object_or_404
