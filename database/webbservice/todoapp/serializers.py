@@ -143,7 +143,7 @@ class NeedCategorySerializer(serializers.ModelSerializer):
     """
 
     class Meta:
-        model = List
+        model = Need
         fields = (
             'title',
             'id',
@@ -160,7 +160,7 @@ class OfferCategorySerializer(serializers.ModelSerializer):
     """
 
     class Meta:
-        model = List
+        model = Offer
         fields = (
             'title',
             'id',
@@ -177,7 +177,7 @@ class UserListSerializer(serializers.ModelSerializer):
     """
 
     class Meta:
-        model = List
+        model = User
         fields = (
             'title',
             'id',
