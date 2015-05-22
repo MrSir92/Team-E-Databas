@@ -1,52 +1,189 @@
 from rest_framework import serializers
-from todoapp.models import List, Task
+from todoapp.models import Need, Offer, User
 
-class NestedTaskSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Task
-        fields= ('id','title', 'done')
-
-class TaskSerializer(serializers.ModelSerializer):
+class NeedSerializer(serializers.ModelSerializer):
     """
-    A serialzier for our Task-model.
+    A serialzier for our Need-model.
     """
 
     class Meta:
-        model = Task
+        model = Need
         fields = (
             'title',
-            'done',
-            'description',
             'id',
+            'created_at',
+            'updated_at',
+            'userid',
+            'category',
+            'description'
         )
 
-class ListSerializer(serializers.ModelSerializer):
+class OfferSerializer(serializers.ModelSerializer):
     """
-    A serializer for listing our List-models.
+    A serialzier for our Offer-model.
+    """
+
+    class Meta:
+        model = Offer
+        fields = (
+            'title',
+            'id',
+            'created_at',
+            'updated_at',
+            'userid',
+            'category',
+            'description'
+        )
+
+class UserSerializer(serializers.ModelSerializer):
+    """
+    A serialzier for our User-model.
+    """
+
+    class Meta:
+        model = User
+        fields = (
+            'title',
+            'id',
+            'created_at',
+            'email',
+            'phone',
+            'adress',
+            'description'
+
+        )
+
+class UserDetailSerializer(serializers.ModelSerializer):
+    """
+    A serializer for viewing a User
+    """
+
+    class Meta:
+        model = User
+        fields = (
+            'name',
+            'created_at',
+            'email',
+            'phone',
+            'adress',
+            'description'
+        )
+
+class NeedDetailSerializer(serializers.ModelSerializer):
+    """
+    A serializer for viewing a Need
+    """
+
+    class Meta:
+        model = Need
+        fields = (
+            'title',
+            'id',
+            'created_at',
+            'updated_at',
+            'userid',
+            'category',
+            'description'
+        )
+
+class OfferDetailSerializer(serializers.ModelSerializer):
+    """
+    A serializer for viewing an Offer
+    """
+
+    class Meta:
+        model = Offer
+        fields = (
+            'title',
+            'id',
+            'created_at',
+            'updated_at',
+            'userid',
+            'category',
+            'description'
+        )
+
+class UserNeedListSerializer(serializers.ModelSerializer):
+    """
+    A serializer for viewing a Users Needs
+    """
+
+    class Meta:
+        model = Need
+        fields = (
+            'title',
+            'id',
+            'created_at',
+            'updated_at',
+            'userid',
+            'category',
+            'description'
+        )
+
+class UserOfferListSerializer(serializers.ModelSerializer):
+    """
+    A serializer for viewing a Users Offers
+    """
+
+    class Meta:
+        model = Offer
+        fields = (
+            'title',
+            'id',
+            'created_at',
+            'updated_at',
+            'userid',
+            'category',
+            'description'
+        )
+
+class NeedCategorySerializer(serializers.ModelSerializer):
+    """
+    A serializer for viewing a Users Needs
     """
 
     class Meta:
         model = List
         fields = (
-            'created_at',
             'title',
             'id',
+            'created_at',
+            'updated_at',
+            'userid',
+            'category',
+            'description'
         )
 
-class ListDetailSerializer(serializers.ModelSerializer):
+class OfferCategorySerializer(serializers.ModelSerializer):
     """
-    A serializer for our List-model.
+    A serializer for viewing a Users Needs
     """
 
-    task_set = NestedTaskSerializer(many=True, read_only=True)
     class Meta:
         model = List
         fields = (
-            'created_at',
             'title',
             'id',
-            'task_set',
+            'created_at',
+            'updated_at',
+            'userid',
+            'category',
+            'description'
         )
 
+class UserListSerializer(serializers.ModelSerializer):
+    """
+    A serializer for viewing a Users Needs
+    """
 
-
+    class Meta:
+        model = List
+        fields = (
+            'title',
+            'id',
+            'created_at',
+            'updated_at',
+            'userid',
+            'category',
+            'description'
+        )
