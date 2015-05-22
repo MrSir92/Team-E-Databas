@@ -1,22 +1,22 @@
 from django.contrib import admin
-from todoapp.models import Task, List
+from todoapp.models import Offer, Need, User
 
-class TaskInline(admin.StackedInline):
-    model = Task
-    verbose_name = 'Task'
+class UserInline(admin.StackedInline):
+    model = User
+    verbose_name = 'User'
     can_delete = True
 
-class TaskAdmin(admin.ModelAdmin):
-    list_display = ('title','done', 'created_at')
-    search_fields = ['title', 'done', 'created_at']
-    list_filter = ('done',)
-    verbose_name = 'title'
-
-class ListAdmin(admin.ModelAdmin):
+class OfferAdmin(admin.ModelAdmin):
     list_display = ('title', 'created_at')
     search_fields = ['title', 'created_at']
-    inlines = [TaskInline]
+    inlines = [UserInline]
+    verbose_name = 'title'
+
+class NeedAdmin(admin.ModelAdmin):
+    list_display = ('title', 'created_at')
+    search_fields = ['title', 'created_at']
+    inlines = [UserInline]
     verbose_name = 'title'    
     
-admin.site.register(Task, TaskAdmin)
-admin.site.register(List, ListAdmin)
+admin.site.register(Offer, OfferAdmin)
+admin.site.register(Need, NeedAdmin)
