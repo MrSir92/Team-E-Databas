@@ -2,28 +2,43 @@ from django.db import models
 
 # Our todo-list requires a set of lists and tasks.
 
-class List(models.Model):
+class Need(models.Model):
     """
-    Our List is a model of a paper. On this paper we want
-    write down all our tasks to be done.
+    Our Need is a model of something a company has in abundant and wants to share.
     """
     created_at = models.DateField(auto_now_add=True, null=True)
     updated_at = models.DateField(auto_now_add=True, auto_now=True)
     title = models.CharField(max_length=128, blank=False)
+    user_id = models.IntegerField(default=0)
+    description = models.TextField(blank=False)
+    category = models.TextField(blank=False)
 
     def __unicode__(self):
         return self.title
 
-class Task(models.Model):
+class Offer(models.Model):
     """
-    Our Task model is a representaiton of the task to be done.
+    Our Offer model is a representaiton of something a company has a need of.
+    """
+    created_at = models.DateField(auto_now_add=True, null=True)
+    updated_at = models.DateField(auto_now_add=True, auto_now=True)
+    title = models.CharField(max_length=128, blank=False)
+    user_id = models.IntegerField(default=0)
+    description = models.TextField(blank=False)
+    category = models.TextField(blank=False)
+
+    def __unicode__(self):
+        return self.title
+
+class User(models.Model):
+    """
+    Our User model is a representaiton of the companies in this community.
     """
     created_at = models.DateField(auto_now_add=True, blank=True, null=True, editable=False)
-    updated_at = models.DateField(auto_now_add=True, auto_now=True)
-    title = models.CharField(max_length=128, blank=False, null=False)
-    done = models.BooleanField(blank=False, default=False)
-    todo_list = models.ForeignKey(List, blank=False)
+    name = models.CharField(max_length=128, blank=False, null=False)
+    phone = models.CharField(max_length=128, blank=False)
+    adress = models.CharField(max_length=128, blank=False)
     description = models.TextField(blank=True)
 
     def __unicode__(self):
-        return self.title
+        return self.name
