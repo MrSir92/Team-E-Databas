@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from todoapp.models import List, Task
+from todoapp.models import Need, Offer, User
 from todoapp.serializers import NeedSerializer, UserSerializer, OfferSerializer, NestedTaskSerializer
 from rest_framework.views import APIView
 from rest_framework import generics, permissions
