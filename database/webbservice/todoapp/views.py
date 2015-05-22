@@ -6,7 +6,7 @@ from rest_framework import generics, permissions
 from django.shortcuts import get_object_or_404
 
 # Create your views here.
-class ListNeeds(generics.ListCreateAPIView):
+class ListNeed(generics.ListCreateAPIView):
     """
     An APIView to list all Needs and to create new
     Need.
