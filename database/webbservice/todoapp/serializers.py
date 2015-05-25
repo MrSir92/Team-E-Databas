@@ -13,7 +13,7 @@ class NeedSerializer(serializers.ModelSerializer):
             'id',
             'created_at',
             'updated_at',
-            'userid',
+            'user_id',
             'category',
             'description'
         )
@@ -30,7 +30,7 @@ class OfferSerializer(serializers.ModelSerializer):
             'id',
             'created_at',
             'updated_at',
-            'userid',
+            'user_id',
             'category',
             'description'
         )
@@ -43,7 +43,7 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = (
-            'title',
+            'name',
             'id',
             'created_at',
             'email',
@@ -81,7 +81,7 @@ class NeedDetailSerializer(serializers.ModelSerializer):
             'id',
             'created_at',
             'updated_at',
-            'userid',
+            'user_id',
             'category',
             'description'
         )
@@ -98,7 +98,7 @@ class OfferDetailSerializer(serializers.ModelSerializer):
             'id',
             'created_at',
             'updated_at',
-            'userid',
+            'user_id',
             'category',
             'description'
         )
@@ -115,7 +115,7 @@ class UserNeedListSerializer(serializers.ModelSerializer):
             'id',
             'created_at',
             'updated_at',
-            'userid',
+            'user_id',
             'category',
             'description'
         )
@@ -132,7 +132,7 @@ class UserOfferListSerializer(serializers.ModelSerializer):
             'id',
             'created_at',
             'updated_at',
-            'userid',
+            'user_id',
             'category',
             'description'
         )
@@ -149,7 +149,7 @@ class NeedCategorySerializer(serializers.ModelSerializer):
             'id',
             'created_at',
             'updated_at',
-            'userid',
+            'user_id',
             'category',
             'description'
         )
@@ -166,7 +166,7 @@ class OfferCategorySerializer(serializers.ModelSerializer):
             'id',
             'created_at',
             'updated_at',
-            'userid',
+            'user_id',
             'category',
             'description'
         )
@@ -179,11 +179,11 @@ class UserListSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = (
-            'title',
+            'name',
             'id',
             'created_at',
             'updated_at',
-            'userid',
+            'user_id',
             'category',
             'description'
         )

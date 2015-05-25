@@ -3,6 +3,7 @@ from todoapp.models import Need, Offer, User
 from todoapp.serializers import NeedSerializer, UserSerializer, OfferSerializer, UserDetailSerializer, UserOfferListSerializer, UserNeedListSerializer, OfferDetailSerializer, OfferCategorySerializer, NeedDetailSerializer, NeedCategorySerializer
 from rest_framework.views import APIView
 from rest_framework import generics, permissions
+from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 
 # Create your views here.
@@ -20,7 +21,7 @@ class CreateUser(generics.CreateAPIView):
     """
     serializer_class = UserSerializer
 
-class UserDetail(generics.RetrieveUpdateDestroyAPIView):
+class UserDetail(generics.CreateAPIView):
     """
     An APIView to retrive, update or delete a specific User.
     """
@@ -32,7 +33,16 @@ class NeedDetail(generics.RetrieveUpdateDestroyAPIView):
     An APIView to retrive, update or delete a specific Need.
     """
     serializer_class = NeedDetailSerializer
-    queryset = Need.objects.all()
+    """def get_queryset(self):
+        task = get_object_or_404(Need, id=self.kwargs[0])
+        return task
+    
+    model = Need
+    def get_queryset(self):
+        task= get_object_or_404(Need,id=self.kwargs['pk'])
+        return task
+    """
+    queryset = Need.objects.filter(id=pk)
 
 class ListOffer(generics.ListCreateAPIView):
     """

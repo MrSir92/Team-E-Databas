@@ -11,27 +11,45 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='List',
+            name='Need',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('created_at', models.DateField(auto_now_add=True, null=True)),
                 ('updated_at', models.DateField(auto_now=True, auto_now_add=True)),
                 ('title', models.CharField(max_length=128)),
+                ('user_id', models.IntegerField(default=0)),
+                ('description', models.TextField()),
+                ('category', models.TextField()),
             ],
             options={
             },
             bases=(models.Model,),
         ),
         migrations.CreateModel(
-            name='Task',
+            name='Offer',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('created_at', models.DateField(auto_now_add=True, null=True)),
                 ('updated_at', models.DateField(auto_now=True, auto_now_add=True)),
                 ('title', models.CharField(max_length=128)),
-                ('done', models.BooleanField(default=False)),
+                ('user_id', models.IntegerField(default=0)),
+                ('description', models.TextField()),
+                ('category', models.TextField()),
+            ],
+            options={
+            },
+            bases=(models.Model,),
+        ),
+        migrations.CreateModel(
+            name='User',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('created_at', models.DateField(auto_now_add=True, null=True)),
+                ('name', models.CharField(max_length=128)),
+                ('phone', models.CharField(max_length=128)),
+                ('adress', models.CharField(max_length=128)),
                 ('description', models.TextField(blank=True)),
-                ('todo_list', models.ForeignKey(to='todoapp.List')),
+                ('email', models.CharField(max_length=128)),
             ],
             options={
             },
