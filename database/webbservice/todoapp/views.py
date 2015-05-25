@@ -21,7 +21,7 @@ class CreateUser(generics.CreateAPIView):
     """
     serializer_class = UserSerializer
 
-class UserDetail(generics.CreateAPIView):
+class UserDetail(generics.RetrieveUpdateDestroyAPIView):
     """
     An APIView to retrive, update or delete a specific User.
     """
