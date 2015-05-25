@@ -12,6 +12,7 @@ class Need(models.Model):
     user_id = models.IntegerField(default=0)
     description = models.TextField(blank=False)
     category = models.TextField(blank=False)
+    location = models.TextField(blank=False)
 
     def __unicode__(self):
         return self.title
@@ -26,7 +27,8 @@ class Offer(models.Model):
     user_id = models.IntegerField(default=0)
     description = models.TextField(blank=False)
     category = models.TextField(blank=False)
-
+    location = models.TextField(blank=False)
+    
     def __unicode__(self):
         return self.title
 
