@@ -82,7 +82,7 @@ class ListUserNeed(generics.RetrieveAPIView):
     serializer_class = UserNeedListSerializer
     queryset = Need.objects.all()
 
-class ListNeedCategory(generics.RetrieveAPIView):
+class ListNeedCategory(generics.ListAPIView):
     """
     An APIView to retrieve a list of needs of the same category.
     """
@@ -91,23 +91,29 @@ class ListNeedCategory(generics.RetrieveAPIView):
         pk = self.kwargs['pk']
         return Need.objects.filter(category=pk)
 
-class ListOfferCategory(generics.RetrieveAPIView):
+class ListOfferCategory(generics.ListAPIView):
     """
     An APIView to retrieve a list of offers of the same category.
     """
     serializer_class = OfferCategorySerializer
-    queryset = Offer.objects.all()
+    def get_queryset(self):
+        pk = self.kwargs['pk']
+        return Offer.objects.filter(category=pk)
 
-class ListNeedLocation(generics.RetrieveAPIView):
+class ListNeedLocation(generics.ListAPIView):
     """
     An APIView to retrieve a list of needs of the same category.
     """
     serializer_class = NeedCategorySerializer
-    queryset = Need.objects.all()
+    def get_queryset(self):
+        pk = self.kwargs['pk']
+        return Need.objects.filter(location=pk)
 
-class ListOfferLocation(generics.RetrieveAPIView):
+class ListOfferLocation(generics.ListAPIView):
     """
     An APIView to retrieve a list of offers of the same category.
     """
     serializer_class = OfferCategorySerializer
-    queryset = Offer.objects.all()
+    def get_queryset(self):
+        pk = self.kwargs['pk']
+        return Need.objects.filter(location=pk)
