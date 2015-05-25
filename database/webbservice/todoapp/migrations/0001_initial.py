@@ -20,6 +20,7 @@ class Migration(migrations.Migration):
                 ('user_id', models.IntegerField(default=0)),
                 ('description', models.TextField()),
                 ('category', models.TextField()),
+                ('location', models.TextField()),
             ],
             options={
             },
@@ -35,6 +36,7 @@ class Migration(migrations.Migration):
                 ('user_id', models.IntegerField(default=0)),
                 ('description', models.TextField()),
                 ('category', models.TextField()),
+                ('location', models.TextField()),
             ],
             options={
             },
