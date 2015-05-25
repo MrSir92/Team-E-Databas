@@ -87,9 +87,25 @@ class ListNeedCategory(generics.RetrieveAPIView):
     An APIView to retrieve a list of needs of the same category.
     """
     serializer_class = NeedCategorySerializer
-    queryset = Need.objects.all()
+    def get_queryset(self):
+        pk = self.kwargs['pk']
+        return Need.objects.filter(category=pk)
 
 class ListOfferCategory(generics.RetrieveAPIView):
+    """
+    An APIView to retrieve a list of offers of the same category.
+    """
+    serializer_class = OfferCategorySerializer
+    queryset = Offer.objects.all()
+
+class ListNeedLocation(generics.RetrieveAPIView):
+    """
+    An APIView to retrieve a list of needs of the same category.
+    """
+    serializer_class = NeedCategorySerializer
+    queryset = Need.objects.all()
+
+class ListOfferLocation(generics.RetrieveAPIView):
     """
     An APIView to retrieve a list of offers of the same category.
     """

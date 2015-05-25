@@ -14,8 +14,10 @@ urlpatterns = [
     url(r'^users/(?P<pk>[0-9]+)/$', views.UserDetail.as_view()),
     url(r'^users/(?P<pk>[0-9]+)/needs/$', views.ListUserNeed.as_view()),
     url(r'^users/(?P<pk>[0-9]+)/offers/$', views.ListUserOffer.as_view()),
-    url(r'^needs/(?P<pk>[0-9]+[a-z])/', views.ListNeedCategory.as_view()),
-    url(r'^offers/(?P<pk>[0-9]+[a-z])/', views.ListOfferCategory.as_view()),
+    url(r'^needs/(?P<pk>[a-z0-9]+)/$', views.ListNeedCategory.as_view()),
+    url(r'^offers/(?P<pk>[a-z0-9]+)/$', views.ListOfferCategory.as_view()),
+    url(r'^needs/location/(?P<pk>[a-z0-9]+)/', views.ListNeedLocation.as_view()),
+    url(r'^offers/location/(?P<pk>[a-z0-9]+)/', views.ListOfferLocation.as_view()),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
