@@ -1,6 +1,24 @@
 from rest_framework import serializers
 from todoapp.models import Need, Offer, User
 
+class UserSerializer(serializers.ModelSerializer):
+    """
+    A serialzier for our User-model.
+    """
+
+    class Meta:
+        model = User
+        fields = (
+            'name',
+            'id',
+            'created_at',
+            'email',
+            'phone',
+            'adress',
+            'description'
+
+        )
+
 class NeedSerializer(serializers.ModelSerializer):
     """
     A serialzier for our Need-model.
@@ -41,23 +59,7 @@ class OfferSerializer(serializers.ModelSerializer):
             'description'
         )
 
-class UserSerializer(serializers.ModelSerializer):
-    """
-    A serialzier for our User-model.
-    """
 
-    class Meta:
-        model = User
-        fields = (
-            'name',
-            'id',
-            'created_at',
-            'email',
-            'phone',
-            'adress',
-            'description'
-
-        )
 
 class UserDetailSerializer(serializers.ModelSerializer):
     """
