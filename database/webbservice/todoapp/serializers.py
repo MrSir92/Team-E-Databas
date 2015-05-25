@@ -154,6 +154,7 @@ class NeedCategorySerializer(serializers.ModelSerializer):
         fields = (
             'title',
             'id',
+            'location',
             'created_at',
             'updated_at',
             'user_id',
@@ -171,6 +172,7 @@ class OfferCategorySerializer(serializers.ModelSerializer):
         fields = (
             'title',
             'id',
+            'location',
             'created_at',
             'updated_at',
             'user_id',
