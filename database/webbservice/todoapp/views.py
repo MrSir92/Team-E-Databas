@@ -42,7 +42,7 @@ class NeedDetail(generics.RetrieveUpdateDestroyAPIView):
         task= get_object_or_404(Need,id=self.kwargs['pk'])
         return task
     """
-    queryset = Need.objects.filter(id=pk)
+    queryset = Need.objects.all()
 
 class ListOffer(generics.ListCreateAPIView):
     """
