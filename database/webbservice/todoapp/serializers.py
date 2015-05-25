@@ -23,7 +23,7 @@ class NeedSerializer(serializers.ModelSerializer):
     """
     A serialzier for our Need-model.
     """
-    user = UserSerializer(read_only = True)
+    user_id = UserSerializer(read_only = True)
 
     class Meta:
         model = Need
@@ -34,7 +34,6 @@ class NeedSerializer(serializers.ModelSerializer):
             'created_at',
             'updated_at',
             'user_id',
-            'user',
             'category',
             'description'
         )
@@ -44,7 +43,7 @@ class OfferSerializer(serializers.ModelSerializer):
     A serialzier for our Offer-model.
     """
 
-    user = UserSerializer(read_only = True)
+    user_id = UserSerializer(read_only = True)
     class Meta:
         model = Offer
         fields = (
@@ -54,7 +53,6 @@ class OfferSerializer(serializers.ModelSerializer):
             'created_at',
             'updated_at',
             'user_id',
-            'user',
             'category',
             'description'
         )
