@@ -3,19 +3,23 @@ from todoapp.models import Need, Offer, User
 from todoapp.serializers import NeedSerializer, UserSerializer, OfferSerializer, UserDetailSerializer, UserOfferListSerializer, UserNeedListSerializer, OfferDetailSerializer, OfferCategorySerializer, NeedDetailSerializer, NeedCategorySerializer
 from rest_framework.views import APIView
 from rest_framework import generics, permissions
-from django.views.generic import ListView
+from django.views.generic import ListView, CreateView
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 
 # Create your views here.
-class ListNeed(ListView):
+class ListNeed(CreateView):
     """
     An APIView to list all Needs and to create new
     Need.
     """
+    model = Need
+    success_url = 'listview'
     serializer_class = NeedSerializer
     template_name = 'front/needs.html'
-    queryset = Need.objects.all()
+    def get_context_data(self, **kwargs):
+        kwargs['object_list'] = Need.objects.all()
+        return super(ListNeed, self).get_context_data(**kwargs)
 
 class CreateUser(generics.CreateAPIView):
     """
