@@ -25,8 +25,8 @@ class Need(models.Model):
     title = models.CharField(max_length=128, blank=False)
     user_id = models.ForeignKey(User, blank=False)
     description = models.TextField(blank=False)
-    category = models.TextField(blank=False)
-    location = models.TextField(blank=False)
+    category = models.CharField(max_length=128, blank=False)
+    location = models.CharField(max_length=128, blank=False)
 
     def __unicode__(self):
         return self.title
@@ -40,8 +40,8 @@ class Offer(models.Model):
     title = models.CharField(max_length=128, blank=False)
     user_id = models.ForeignKey(User, blank=False)
     description = models.TextField(blank=False)
-    category = models.TextField(blank=False)
-    location = models.TextField(blank=False)
+    category = models.CharField(max_length=128, blank=False)
+    location = models.CharField(max_length=128, blank=False)
     
     def __unicode__(self):
         return self.title

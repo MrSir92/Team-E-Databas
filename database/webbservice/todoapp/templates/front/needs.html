@@ -4,6 +4,13 @@
 
 {% block content %}
 
-	<h1>Testar</h1>
+	<h1>Behov:</h1>
+	<ul>
+		{% for need in object_list %}
+			<li>{{ need.title }}, skapad av {{ need.user_id }}</li>
+		{% endfor %}
+	</ul>
+
+	
 
 {% endblock %}

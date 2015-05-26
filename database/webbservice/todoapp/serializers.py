@@ -23,7 +23,7 @@ class NeedSerializer(serializers.ModelSerializer):
     """
     A serialzier for our Need-model.
     """
-    user_id = UserSerializer(read_only = True)
+   
 
     class Meta:
         model = Need
@@ -43,7 +43,7 @@ class OfferSerializer(serializers.ModelSerializer):
     A serialzier for our Offer-model.
     """
 
-    user_id = UserSerializer(read_only = True)
+
     class Meta:
         model = Offer
         fields = (

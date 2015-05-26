@@ -17,7 +17,6 @@ class Migration(migrations.Migration):
                 ('created_at', models.DateField(auto_now_add=True, null=True)),
                 ('updated_at', models.DateField(auto_now=True, auto_now_add=True)),
                 ('title', models.CharField(max_length=128)),
-                ('user_id', models.IntegerField(default=0)),
                 ('description', models.TextField()),
                 ('category', models.TextField()),
                 ('location', models.TextField()),
@@ -33,7 +32,6 @@ class Migration(migrations.Migration):
                 ('created_at', models.DateField(auto_now_add=True, null=True)),
                 ('updated_at', models.DateField(auto_now=True, auto_now_add=True)),
                 ('title', models.CharField(max_length=128)),
-                ('user_id', models.IntegerField(default=0)),
                 ('description', models.TextField()),
                 ('category', models.TextField()),
                 ('location', models.TextField()),
@@ -56,5 +54,17 @@ class Migration(migrations.Migration):
             options={
             },
             bases=(models.Model,),
+        ),
+        migrations.AddField(
+            model_name='offer',
+            name='user_id',
+            field=models.ForeignKey(to='todoapp.User'),
+            preserve_default=True,
+        ),
+        migrations.AddField(
+            model_name='need',
+            name='user_id',
+            field=models.ForeignKey(to='todoapp.User'),
+            preserve_default=True,
         ),
     ]
