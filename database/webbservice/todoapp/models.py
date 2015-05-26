@@ -8,6 +8,7 @@ class User(models.Model):
     """
     created_at = models.DateField(auto_now_add=True, blank=True, null=True, editable=False)
     name = models.CharField(max_length=128, blank=False, null=False)
+    password = models.CharField(max_length=128, blank = False, null = False)
     phone = models.CharField(max_length=128, blank=False)
     adress = models.CharField(max_length=128, blank=False)
     description = models.TextField(blank=True)
