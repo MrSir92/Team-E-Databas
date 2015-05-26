@@ -3,7 +3,33 @@
 {% block title %}Behov{% endblock %}
 
 {% block content %}
+<script type="text/jsx">
 
-	<h1>Välkommen!</h1>
+	var username = '',
+
+	$.ajax({
+		url : '172.16.0.126:8000/Users/6/',
+    	type : 'GET',
+    	dataType: 'JSON',
+    	contentType : 'application/json',
+    	headers : {
+    		'accept':'JSON'
+    	   	},
+    	data: { get_param: 'value'},
+
+    	error : function(data) {
+        	console.log('error');
+    	},
+    	success : function(data) {
+        	username = data.name
+
+    	}
+	});
+
+	<h1>Välkommen! {{username}}</h1>
+
+</script>
+
+
 
 {% endblock %}
