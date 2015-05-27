@@ -10,6 +10,8 @@ urlpatterns = [
     url(r'^needs/$', views.ListNeed.as_view()),
     url(r'^offers/$', views.ListOffer.as_view()),
     url(r'^users/$', views.CreateUser.as_view()),
+    url(r'^needs/filter/$', views.FilterNeed.as_view()),
+    url(r'^offers/filter/$', views.FilterOffer.as_view()),
     url(r'^needs/(?P<pk>[0-9]+)/$', views.NeedDetail.as_view()),
     url(r'^offers/(?P<pk>[0-9]+)/$', views.OfferDetail.as_view()),
     url(r'^users/(?P<pk>[0-9]+)/$', views.UserDetail.as_view()),

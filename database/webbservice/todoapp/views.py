@@ -12,6 +12,14 @@ class Index(ListView):
     template_name = 'index.html'
     queryset = User.objects.all()
 
+class FilerNeed(ListView):
+    serializer_class = NeedFilterSerializer
+    queryset = Need.objects.all()
+
+class FilterOffer(ListView)
+    serializer_class = OfferFilterSerializer
+    queryset = Offer.objects.all()
+
 class ListNeed(CreateView):
     """
     An APIView to list all Needs and to create new
