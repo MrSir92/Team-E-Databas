@@ -10,13 +10,13 @@ from django.shortcuts import get_object_or_404
 # Create your views here.
 class Index(ListView):
     template_name = 'index.html'
-    queryset = User.objects.all()
+    queryset = User.objects.all().order_by('id')[:1]
 
-class FilterNeed(ListView):
+class FilterNeed(generics.ListAPIView):
     serializer_class = NeedFilterSerializer
     queryset = Need.objects.all()
 
-class FilterOffer(ListView):
+class FilterOffer(generics.ListAPIView):
     serializer_class = OfferFilterSerializer
     queryset = Offer.objects.all()
 
@@ -30,7 +30,7 @@ class ListNeed(CreateView):
     serializer_class = NeedSerializer
     template_name = 'front/needs.html'
     def get_context_data(self, **kwargs):
-        kwargs['object_list'] = Need.objects.all()
+        kwargs['object_list'] = Need.objects.all().order_by('created_at')[:20]
         return super(ListNeed, self).get_context_data(**kwargs)
 
 class CreateUser(generics.CreateAPIView):
@@ -66,8 +66,13 @@ class ListOffer(generics.ListCreateAPIView):
     """
     An APIView to list all Offers or create an Offer.
     """
+    model = Offer
+    success_url = 'listview'
     serializer_class = OfferSerializer
-    queryset = Offer.objects.all()
+    template_name = 'front/offers.html'
+    def get_context_data(self, **kwargs):
+        kwargs['object_list'] = Offer.objects.all().order_by('created_at')[:20]
+        return super(ListNeed, self).get_context_data(**kwargs)
     """
     def perform_create(self, serializer):
         try:
