@@ -27,6 +27,6 @@ var GettingUser = React.createClass({
 });
 
 React.render (
-  <GettingUser source="http://172.16.0.224:8000/users/6/" />,
+  <GettingUser source="/users/6/" />,
   document.getElementById('content-fill')
 );
