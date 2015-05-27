@@ -16,7 +16,7 @@ class FilerNeed(ListView):
     serializer_class = NeedFilterSerializer
     queryset = Need.objects.all()
 
-class FilterOffer(ListView)
+class FilterOffer(ListView):
     serializer_class = OfferFilterSerializer
     queryset = Offer.objects.all()
 
