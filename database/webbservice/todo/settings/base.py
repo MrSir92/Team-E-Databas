@@ -33,11 +33,11 @@ BASE_DIR = Path(__file__).ancestor(3)
 SECRET_KEY = 'zrq6%oa8yj9hnqako$ck9r67qn9jxe)9+=)+@iz8yduca-a7f%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-TEMPLATE_DEBUG = False
-TESTING = False
+DEBUG = True
+TEMPLATE_DEBUG = True
+TESTING = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['172.16.0.224:8000/',]
 
 
 # Application definition

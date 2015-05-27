@@ -8,6 +8,10 @@ from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 
 # Create your views here.
+class Index(ListView):
+    template_name = 'index.html'
+    queryset = User.objects.all()
+
 class ListNeed(CreateView):
     """
     An APIView to list all Needs and to create new
