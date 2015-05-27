@@ -194,3 +194,29 @@ class UserListSerializer(serializers.ModelSerializer):
             'category',
             'description'
         )
+
+class NeedFilterSerializer(serializers.ModelSerializer):
+    """
+    A serializer for viewing Needs according to filters
+    """
+
+    class Meta:
+        model = Need
+        fields = (
+                'id',
+                'category',
+                'location'
+        )
+
+class OfferFilterSerializer(serializers.ModelSerializer):
+    """
+    A serializer for viewing Needs according to filters
+    """
+
+    class Meta:
+        model = Offer
+        fields = (
+                'id',
+                'category',
+                'location'
+        )
