@@ -1,9 +1,9 @@
 /** @jsx React.DOM */
 
-var GettingUser = React.createClass({
+var GettingFilter = React.createClass({
   getInitialState: function() {
     return {
-      username: ''
+      : ''
     };
   },
 
@@ -27,6 +27,6 @@ var GettingUser = React.createClass({
 });
 
 React.render (
-  <GettingUser source="/users/8/" />,
-  document.getElementById('content-fill')
+  <GettingFilter source="/need/filter/" />,
+  document.getElementById('filter-fill')
 );

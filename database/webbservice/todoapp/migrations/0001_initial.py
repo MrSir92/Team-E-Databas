@@ -18,8 +18,9 @@ class Migration(migrations.Migration):
                 ('updated_at', models.DateField(auto_now=True, auto_now_add=True)),
                 ('title', models.CharField(max_length=128)),
                 ('description', models.TextField()),
-                ('category', models.TextField()),
-                ('location', models.TextField()),
+                ('category', models.CharField(max_length=128)),
+                ('sub_category', models.CharField(max_length=128)),
+                ('location', models.CharField(max_length=128)),
             ],
             options={
             },
@@ -33,8 +34,9 @@ class Migration(migrations.Migration):
                 ('updated_at', models.DateField(auto_now=True, auto_now_add=True)),
                 ('title', models.CharField(max_length=128)),
                 ('description', models.TextField()),
-                ('category', models.TextField()),
-                ('location', models.TextField()),
+                ('category', models.CharField(max_length=128)),
+                ('sub_category', models.CharField(max_length=128)),
+                ('location', models.CharField(max_length=128)),
             ],
             options={
             },

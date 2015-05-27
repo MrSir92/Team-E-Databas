@@ -2,7 +2,7 @@ from django.shortcuts import render
 from todoapp.models import Need, Offer, User
 from todoapp.serializers import NeedSerializer, UserSerializer, OfferSerializer, UserDetailSerializer, UserOfferListSerializer, UserNeedListSerializer, OfferDetailSerializer, OfferCategorySerializer, NeedDetailSerializer, NeedCategorySerializer, NeedFilterSerializer, OfferFilterSerializer
 from rest_framework.views import APIView
-from rest_framework import generics, permissions
+from rest_framework import generics, permissions, pagination
 from django.views.generic import ListView, CreateView
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
@@ -20,18 +20,33 @@ class FilterOffer(generics.ListAPIView):
     serializer_class = OfferFilterSerializer
     queryset = Offer.objects.all()
 
-class ListNeed(CreateView):
+class ListNeed(generics.ListCreateAPIView):
     """
     An APIView to list all Needs and to create new
     Need.
     """
-    model = Need
+    """serializer_class = NeedSerializer
+    def get_paginated_response(self.data):
+        return ({
+            'links': {
+                'next': self.get_next_link(),
+                'previous': self.get_previous_link()
+            },
+            'count': self.page.paginator.count,
+            'results': data
+            })
+    """
+    serializer_class = NeedSerializer
+    paginate_by = 20
+    queryset = Need.objects.all()
+    """model = Need
     success_url = 'listview'
     serializer_class = NeedSerializer
     template_name = 'front/needs.html'
     def get_context_data(self, **kwargs):
         kwargs['object_list'] = Need.objects.all().order_by('created_at')[:20]
-        return super(ListNeed, self).get_context_data(**kwargs)
+        return super(ListNeed, self).get_context_data(**kwargs)"""
+
 
 class CreateUser(generics.CreateAPIView):
     """
@@ -66,13 +81,16 @@ class ListOffer(generics.ListCreateAPIView):
     """
     An APIView to list all Offers or create an Offer.
     """
-    model = Offer
+    serializer_class = OfferSerializer
+    paginate_by = 20
+    queryset = Offer.objects.all()
+    """model = Offer
     success_url = 'listview'
     serializer_class = OfferSerializer
     template_name = 'front/offers.html'
     def get_context_data(self, **kwargs):
         kwargs['object_list'] = Offer.objects.all().order_by('created_at')[:20]
-        return super(ListNeed, self).get_context_data(**kwargs)
+        return super(ListNeed, self).get_context_data(**kwargs)"""
     """
     def perform_create(self, serializer):
         try:

@@ -39,6 +39,11 @@ TESTING = True
 
 ALLOWED_HOSTS = ['172.16.0.224:8000/',]
 
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 20
+}
+
 
 # Application definition
 

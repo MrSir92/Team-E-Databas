@@ -26,6 +26,7 @@ class Need(models.Model):
     user_id = models.ForeignKey(User, blank=False)
     description = models.TextField(blank=False)
     category = models.CharField(max_length=128, blank=False)
+    sub_category = models.CharField(max_length=128, blank=False)
     location = models.CharField(max_length=128, blank=False)
 
     def __unicode__(self):
@@ -41,6 +42,7 @@ class Offer(models.Model):
     user_id = models.ForeignKey(User, blank=False)
     description = models.TextField(blank=False)
     category = models.CharField(max_length=128, blank=False)
+    sub_category = models.CharField(max_length=128, blank=False)
     location = models.CharField(max_length=128, blank=False)
     
     def __unicode__(self):
