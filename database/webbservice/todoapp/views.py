@@ -12,7 +12,7 @@ class Index(ListView):
     template_name = 'index.html'
     queryset = User.objects.all()
 
-class FilerNeed(ListView):
+class FilterNeed(ListView):
     serializer_class = NeedFilterSerializer
     queryset = Need.objects.all()
 
