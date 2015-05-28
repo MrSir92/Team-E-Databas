@@ -35,7 +35,7 @@ class NeedSerializer(serializers.ModelSerializer):
             'updated_at',
             'user_id',
             'category',
-            'sub_category',
+            'subcategory',
             'description'
         )
 
@@ -55,7 +55,7 @@ class OfferSerializer(serializers.ModelSerializer):
             'updated_at',
             'user_id',
             'category',
-            'sub_category',
+            'subcategory',
             'description'
         )
 
@@ -207,7 +207,7 @@ class NeedFilterSerializer(serializers.ModelSerializer):
         fields = (
                 'id',
                 'category',
-                'sub_category',
+                'subcategory',
                 'location'
         )
 
@@ -221,6 +221,6 @@ class OfferFilterSerializer(serializers.ModelSerializer):
         fields = (
                 'id',
                 'category',
-                'sub_category',
+                'subcategory',
                 'location'
         )
