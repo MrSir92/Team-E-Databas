@@ -156,5 +156,5 @@ var FilterList = React.createClass({
 
 React.render(
   <FilterBox url="offers/filter/" pollInterval={2000} />,
-  document.getElementById('filter-fill')
+  document.getElementById('filtersidebar')
 );
