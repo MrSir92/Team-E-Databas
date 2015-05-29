@@ -3,10 +3,13 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="description" content="Documentation and reference library for ZURB Foundation. JavaScript, CSS, components, grid and more."/>
 		<script src="{% static 'build/react.js' %}"></script>
 		<script src="{% static 'build/JSXTransformer.js' %}"></script>
 		<script src="{% static 'build/jquery-1.11.3.js' %}"></script>
+		<script src="{% static 'javascripts/vendor/modernizr.js' %}"></script>
+		<link rel="stylesheet" href="{% static 'css/templates/foundation.css' %}"/>
 		<link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" />
 		<title>Resursbörsen | {% block title %} {% endblock %}</title>
 	</head>
