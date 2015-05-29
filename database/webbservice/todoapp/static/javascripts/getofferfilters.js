@@ -3,6 +3,17 @@ var space_filter = 0;
 var service_filter = 0;
 var other_filter = 0;
 
+var umea_filter = 0;
+var vannas_filter = 0;
+var lycksele_filter = 0;
+
+var storage_filter = 0;
+var office_filter = 0;
+var other_space_filter = 0;
+var admin_filter = 0;
+var other_service_filter = 0;
+var other_other_filter = 0;
+
 var FilterBox = React.createClass({
   loadFiltersFromServer: function() {
     $.ajax({
@@ -49,25 +60,94 @@ var FilterList = React.createClass({
     if (other_filter > 0) {
       other_filter = 0;
     }
+    if (umea_filter > 0) {
+      umea_filter = 0;
+    }
+    if (vannas_filter > 0) {
+      vannas_filter = 0;
+    }
+    if (lycksele_filter > 0) {
+      lycksele_filter = 0;
+    }
+    if (storage_filter > 0) {
+      storage_filter = 0;
+    }
+    if (office_filter > 0) {
+      office_filter = 0;
+    }
+    if (other_space_filter > 0) {
+      other_space_filter = 0;
+    }
+    if (admin_filter > 0) {
+      admin_filter = 0;
+    }
+    if (other_service_filter > 0) {
+      other_service_filter = 0;
+    }
+    if (other_other_filter > 0) {
+      other_other_filter = 0;
+    }
     for (i in this.props.data) {
       all++;
       if (this.props.data[i].category == 'space') {
         space_filter++;
       }
-      if (this.props.data[i].category == 'service') {
+      else if (this.props.data[i].category == 'service') {
         service_filter++;
       }
-      if (this.props.data[i].category == 'other') {
+      else if (this.props.data[i].category == 'other') {
         other_filter++;
+      }
+      if (this.props.data[i].subcategory == 'storage') {
+        storage_filter++;
+      }
+      else if (this.props.data[i].subcategory == 'office') {
+        office_filter++;
+      }
+      else if (this.props.data[i].subcategory == 'other_space') {
+        other_space_filter++;
+      }
+      else if (this.props.data[i].subcategory == 'admin') {
+        admin_filter++;
+      }
+      else if (this.props.data[i].subcategory == 'other_service') {
+        other_service_filter++;
+      }
+      else if (this.props.data[i].subcategory == 'other') {
+        other_other_filter++;
+      }
+      if (this.props.data[i].location == 'umea') {
+        umea_filter++;
+      }
+      else if (this.props.data[i].location == 'lycksele') {
+        lycksele_filter++;
+      }
+      else if (this.props.data[i].location == 'vannas') {
+        vannas_filter++;
       }
     } 
     return (
       <div className="filterList">
+        <h2>Kategorier</h2>
         <ul>
           <li>Alla erbjudanden: {all}</li>
           <li>Utrymme: {space_filter}</li>
           <li>Tjänster: {service_filter}</li>
           <li>Övrigt: {other_filter}</li>
+        </ul>
+        <h2>Subkategorier</h2>
+        <ul>
+          <li>Lager: {storage_filter}</li>
+          <li>Kontor: {office_filter}</li>
+          <li>Administratör: {admin_filter}</li>
+          <li>Övrigt_utrymme: {other_space_filter}</li>
+          <li>Övrigt_tjänster: {other_service_filter}</li>
+        </ul>
+        <h2>Geografiskt</h2>
+        <ul>
+          <li>Umeå: {umea_filter}</li>
+          <li>Vännäs: {vannas_filter}</li>
+          <li>Lycksele: {lycksele_filter}</li>
         </ul>
       </div>
     );
