@@ -3,7 +3,7 @@ from todoapp.models import Need, Offer, User
 from todoapp.serializers import NeedSerializer, UserSerializer, OfferSerializer, UserDetailSerializer, UserOfferListSerializer, UserNeedListSerializer, OfferDetailSerializer, OfferCategorySerializer, NeedDetailSerializer, NeedCategorySerializer, NeedFilterSerializer, OfferFilterSerializer
 from rest_framework.views import APIView
 from rest_framework import generics, permissions, pagination
-from django.views.generic import ListView, CreateView
+from django.views.generic import ListView, CreateView, DetailView
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 from django.db.models import Count
@@ -103,12 +103,15 @@ class ListOffer(generics.ListCreateAPIView):
         list = get_object_or_404(List.objects.all(), pk=self.kwargs['pk'])
         return list.task_set.all() 
     """    
-class OfferDetail(generics.RetrieveUpdateDestroyAPIView):
+class OfferDetail(DetailView):
     """
     An APIView to retrive, update or delete a specific Offer.
     """
-    serializer_class = OfferDetailSerializer
-    queryset = Offer.objects.all()
+    model = Offer
+    
+    """serializer_class = OfferDetailSerializer
+
+    queryset = Offer.objects.all()"""
 
 class ListUserOffer(generics.RetrieveAPIView):
     """

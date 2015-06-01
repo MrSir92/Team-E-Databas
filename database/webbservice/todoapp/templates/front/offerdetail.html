@@ -3,4 +3,32 @@
 {% block content %}
 {% load staticfiles %}
 
+<div id="content">
+        <h2 className="offerTitle">
+          {{object.title}}
+        </h2>
+        <h3 className="offerUser">
+          {{object.user_id}}
+        </h3>
+        <h4 className="offerLocation">
+          {{object.location}}
+        </h4>
+        <h4 className="offerCategory">
+          {{object.category}}
+        </h4>
+        <h4 className="offerSubcategory">
+          {{object.subcategory}}
+        </h4>
+        <p className="offerDescription">
+          {{object.description}}
+        </p>
+        <p className="createdUpdated">
+          Skapad: {{object.created_at}}.
+        </p>
+        <p>
+          Uppdaterad senast: {{object.updated_at}}.
+        </p>
+         
+</div>
+
 {% endblock %}
