@@ -20,8 +20,8 @@ class Need(models.Model):
     """
     Our Need is a model of something a company has in abundant and wants to share.
     """
-    created_at = models.DateField(auto_now_add=True, null=True)
-    updated_at = models.DateField(auto_now_add=True, auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
+    updated_at = models.DateTimeField(auto_now_add=True, auto_now=True)
     title = models.CharField(max_length=128, blank=False)
     user_id = models.ForeignKey(User, blank=False)
     description = models.TextField(blank=False)
@@ -36,8 +36,8 @@ class Offer(models.Model):
     """
     Our Offer model is a representaiton of something a company has a need of.
     """
-    created_at = models.DateField(auto_now_add=True, null=True)
-    updated_at = models.DateField(auto_now_add=True, auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
+    updated_at = models.DateTimeField(auto_now_add=True, auto_now=True)
     title = models.CharField(max_length=128, blank=False)
     user_id = models.ForeignKey(User, blank=False)
     description = models.TextField(blank=False)

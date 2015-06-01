@@ -27,6 +27,6 @@ var GettingUser = React.createClass({
 });
 
 React.render (
-  <GettingUser source="/users/14/" />,
+  <GettingUser source="/users/15/" />,
   document.getElementById('content-fill')
 );

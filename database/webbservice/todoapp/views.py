@@ -84,7 +84,7 @@ class ListOffer(generics.ListCreateAPIView):
     """
     serializer_class = OfferSerializer
     paginate_by = 20
-    queryset = Offer.objects.all()
+    queryset = Offer.objects.all().order_by('-created_at')
     """model = Offer
     success_url = 'listview'
     serializer_class = OfferSerializer
