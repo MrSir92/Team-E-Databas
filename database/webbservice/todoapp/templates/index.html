@@ -80,6 +80,59 @@
   </div>
 </div>
  
+<form id="theform">
+  <div class="row">
+    <div class="large-9 columns">
+      <label>Titel
+        <input type="text" placeholder="Erbjudandets titel här..."/>
+      </label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-9 columns">
+      <label>Kategori
+        <select id="category">
+          <option value="service">Tjänster</option>
+          <option value="space">Utrymme</option>
+          <option value="other">Övrigt</option>
+        </select>
+      </label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-9 columns">
+      <label>Subkategori
+        <select id="subcategory">
+          <option value="storage">Lager</option>
+          <option value="office">Kontor</option>
+          <option value="admin">Administration</option>
+          <option value="other_space">Övrigt_utrymme</option>
+          <option value="other_service">Övrigt_tjänster</option>
+          <option value="other_other">Övrigt_övrigt</option>
+        </select>
+      </label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-9 columns">
+      <label>Geografiskt
+        <select id="location">
+          <option value="umea">Umeå</option>
+          <option value="lycksele">Lycksele</option>
+          <option value="vannas">Vännäs</option>
+        </select>
+      </label>
+    </div>
+  </div>
+  <div class="row">
+      <div class="large-9 columns">
+        <label>Beskrivning
+          <textarea placeholder="Erbjudandets beskrivning här..."></textarea>
+        </label>
+      </div>
+    </div>
+</form>
+
 <footer class="row">
   <div class="large-12 columns">
     <hr/>
@@ -111,15 +164,4 @@
       var doc = document.documentElement;
       doc.setAttribute('data-useragent', navigator.userAgent);
     </script>
-
-
-<form>
-  <div class="row">
-    <div class="large 12 columns">
-      <label>
-        <input type="text" placeholder="large.12.columns"/>
-      </label>
-    </div>
-  </div>
-</form>
 {% endblock %}

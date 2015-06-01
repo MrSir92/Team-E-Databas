@@ -18,6 +18,10 @@ body {
   height: 300px;
 }
 
+#theform {
+  display:none;
+}
+
 .filter-list {
   margin: auto;
   width: 300px;
