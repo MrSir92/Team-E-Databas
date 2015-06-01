@@ -17,7 +17,9 @@
 </div>
  
  
+<div class="row" style="height: 300px; overflow:hidden">
   <div class="large-12 columns">
+    <img src="{% static 'img/verkstad.png' %}" style="width=100%" alt="always use alts">
   </div>
 </div>
 
@@ -28,16 +30,40 @@
 </div>
 
 
+<div class="small-3 small-centered columns" id="togglebuttons">
+  <ul class="tabs" data-tab>
+    <li class="tab-title active" role="presentational" ><a href="#needs" role="tab" tabindex="0" aria-selected="true" controls="needspanel">Sökes</a></li>
+    <li class="tab-title" role="presentational" ><a href="#offers" role="tab" tabindex="0" aria-selected="false" controls="offerspanel">Önskas</a></li>
+  </ul>
+</div>
+
+
+<hr/>
+
+
 <div class="row" id="container">
+  <div class="small-4 columns" id="filtersidebar">
   </div>
 </div>
 <script type="text/jsx" src="{% static 'javascripts/getofferfilters.js' %}"></script>
 <script src="{% static 'javascripts/getofferfilters.js' %}" type="text/jsx"></script>
+<div class="tabs-content">
+  <div class="small-4 small-centered columns" id="listcontainer">
+    <section role="needspanel" aria-hidden="false" class="content active" id="needs">
+      <h2>First panel content goes here...</h2>
+    </section>
+    <section role="offerspanel" aria-hidden="true" class="content" id="offers">
+      <h2>Second panel content goes here...</h2>
+    </section>
+  </div>
 </div>
 <script type="text/jsx" src="{% static 'javascripts/getofferlist.js' %}"></script>
+  <div class="small-4 columns">
     <img src="http://placehold.it/400x300&text=[img]"/>
   </div>
 </div>
+
+
 <div class="row">
   <div class="large-12 columns" >
     <div class="panel">
