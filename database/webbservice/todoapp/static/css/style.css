@@ -9,6 +9,10 @@ body {
   background: #AAAAAA;
 }
 
+#header-img {
+  max-width: 100%;
+}
+
 .filter-list {
   margin: auto;
   width: 300px;
