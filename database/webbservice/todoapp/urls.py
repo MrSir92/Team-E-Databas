@@ -12,7 +12,7 @@ urlpatterns = [
     url(r'^users/$', views.CreateUser.as_view()),
     url(r'^needs/filter/$', views.FilterNeed.as_view()),
     url(r'^offers/filter/$', views.FilterOffer.as_view()),
-    url(r'^needs/(?P<pk>[0-9]+)/$', views.NeedDetail.as_view()),
+    url(r'^needs/(?P<pk>[0-9]+)/$', views.NeedDetail.as_view(template_name = 'front/needdetail.html'), name="needdetail"),
     url(r'^offers/(?P<pk>[0-9]+)/$', views.OfferDetail.as_view(template_name = 'front/offerdetail.html'), name="offerdetail"),
     url(r'^users/(?P<pk>[0-9]+)/$', views.UserDetail.as_view()),
     url(r'^users/(?P<pk>[0-9]+)/needs/$', views.ListUserNeed.as_view()),

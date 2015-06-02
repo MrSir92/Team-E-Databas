@@ -62,11 +62,11 @@ class UserDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = UserDetailSerializer
     queryset = User.objects.all()
 
-class NeedDetail(generics.RetrieveUpdateDestroyAPIView):
+class NeedDetail(DetailView):
     """
     An APIView to retrive, update or delete a specific Need.
     """
-    serializer_class = NeedDetailSerializer
+    model = Need
     """def get_queryset(self):
         task = get_object_or_404(Need, id=self.kwargs[0])
         return task
@@ -76,7 +76,6 @@ class NeedDetail(generics.RetrieveUpdateDestroyAPIView):
         task= get_object_or_404(Need,id=self.kwargs['pk'])
         return task
     """
-    queryset = Need.objects.all()
 
 class ListOffer(generics.ListCreateAPIView):
     """
