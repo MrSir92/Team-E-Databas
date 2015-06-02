@@ -21,9 +21,9 @@ var OfferForm = React.createClass({
       data: toSend,
       success: function(data) {
         React.findDOMNode(this.refs.title).value = '';
-        React.findDOMNode(this.refs.category).value = '';
-        React.findDOMNode(this.refs.subcategory).value = '';
-        React.findDOMNode(this.refs.location).value = '';
+        React.findDOMNode(this.refs.category).value = 'service';
+        React.findDOMNode(this.refs.subcategory).value = 'storage';
+        React.findDOMNode(this.refs.location).value = 'umea';
         React.findDOMNode(this.refs.description).value = '';
       }.bind(this),
       error: function(xhr, status, err) {
