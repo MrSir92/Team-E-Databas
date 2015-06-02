@@ -8,11 +8,15 @@ var OfferForm = React.createClass({
     var location = React.findDOMNode(this.refs.location).value.trim();
     var description = React.findDOMNode(this.refs.description).value.trim();
     var user_id = 15;
+    var imgfile = React.findDOMNode(this.refs.imgfile).value.trim();
     if (!title || !category || !subcategory || !location || !description) {
       return;
     }
 
-    var toSend = {"title": title, "location": location, "user_id": 15, "category": category, "subcategory": subcategory, "description": description };
+    var data = new FormData();
+    data = imgfile.append('SelectedFile', imgfile.file[0]);
+
+    var toSend = {"title": title, "location": location, "user_id": 15, "category": category, "subcategory": subcategory, "description": description, "imgfile": imgfile };
     
     $.ajax({
       url: this.props.url,
@@ -25,6 +29,7 @@ var OfferForm = React.createClass({
         React.findDOMNode(this.refs.subcategory).value = 'storage';
         React.findDOMNode(this.refs.location).value = 'umea';
         React.findDOMNode(this.refs.description).value = '';
+        React.findDOMNode(this.refs.imgfile).value = '';
       }.bind(this),
       error: function(xhr, status, err) {
         console.error(this.props.url, status, err.toString());
@@ -91,6 +96,13 @@ var OfferForm = React.createClass({
           <div className="large-9 columns">
             <label>Beskrivning
               <textarea ref="description" placeholder="Erbjudandets beskrivning här..."></textarea>
+            </label>
+          </div>
+        </div>
+        <div className="row">
+          <div className="large-9 columns">
+            <label>Ladda upp en bild.
+              <input type="file" ref="imgfile" />
             </label>
           </div>
         </div>

@@ -5,6 +5,7 @@ var Offer = React.createClass({
         <h2 className="offerTitle">
           {this.props.title}
         </h2>
+        <img src={"static/" + this.props.imgfile} />
         <h3 className="offerUser">
           {this.props.user_id}
         </h3>
@@ -74,7 +75,7 @@ var OfferList = React.createClass({
         // `key` is a React-specific concept and is not mandatory for the
         // purpose of this tutorial. if you're curious, see more here:
         // http://facebook.github.io/react/docs/multiple-components.html#dynamic-children
-        <Offer id={offer.id} title={offer.title} user_id={offer.user_id} location={offer.location} category={offer.category} subcategory={offer.subcategory} created_at={offer.created_at} updated_at={offer.updated_at} key={index}>
+        <Offer imgfile={offer.imgfile} id={offer.id} title={offer.title} user_id={offer.user_id} location={offer.location} category={offer.category} subcategory={offer.subcategory} created_at={offer.created_at} updated_at={offer.updated_at} key={index}>
           {offer.title}
         </Offer>
       );

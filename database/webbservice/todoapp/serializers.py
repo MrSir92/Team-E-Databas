@@ -36,7 +36,8 @@ class NeedSerializer(serializers.ModelSerializer):
             'user_id',
             'category',
             'subcategory',
-            'description'
+            'description',
+            'imgfile'
         )
 
 class OfferSerializer(serializers.ModelSerializer):
@@ -56,7 +57,8 @@ class OfferSerializer(serializers.ModelSerializer):
             'user_id',
             'category',
             'subcategory',
-            'description'
+            'description',
+            'imgfile'
         )
 
 

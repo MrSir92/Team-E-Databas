@@ -28,6 +28,7 @@ class Need(models.Model):
     category = models.CharField(max_length=128, blank=False)
     subcategory = models.CharField(max_length=128, blank=False)
     location = models.CharField(max_length=128, blank=False)
+    imgfile = models.CharField(max_length=256, blank=True)
 
     def __unicode__(self):
         return self.title
@@ -44,6 +45,7 @@ class Offer(models.Model):
     category = models.CharField(max_length=128, blank=False)
     subcategory = models.CharField(max_length=128, blank=False)
     location = models.CharField(max_length=128, blank=False)
+    imgfile = models.CharField(max_length=256, blank=True)
     
     def __unicode__(self):
         return self.title
