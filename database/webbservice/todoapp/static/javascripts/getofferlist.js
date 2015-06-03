@@ -2,36 +2,47 @@ var Offer = React.createClass({
   render: function() {
     return (
       <a href={"offers/" + this.props.id + "/"}><div className="offer">
-        <h2 className="offerTitle">
-          {this.props.title}
-        </h2>
-        <img src={"static/" + this.props.imgfile} />
-        <h3 className="offerUser">
-          {this.props.user_id}
-        </h3>
-        <h4 className="offerLocation">
-          {this.props.location}
-        </h4>
-        <h4 className="offerCategory">
-          {this.props.category}
-        </h4>
-        <h4 className="offerSubcategory">
-          {this.props.subcategory}
-        </h4>
-        <p className="offerDescription">
-          {this.props.description}
-        </p>
-        <p className="createdUpdated">
-          Skapad: {this.props.created_at}.
-        </p>
-        <p>
-          Uppdaterad senast: {this.props.updated_at}.
-        </p>
-         
+        <div className="small-4 columns">
+          <img src={"static/" + this.props.imgfile} />
+        </div>
+        <div className="small-6 columns">
+          <div className="small-12 columns">
+            <h4 className="offerCategory">
+              {% if this.props.category == "space"  %}
+            Utrymme
+        {% elif object.category == "service" %}
+            Tjänster
+        {% elif object.category == "other" %}
+            Övrigt
+        {% endif %}/
+        {% if object.subcategory == "storage"  %}
+            Lager
+        {% elif object.subcategory == "office" %}
+            Kontor
+        {% elif object.subcategory == "admin" %}
+            Administrativt
+        {% elif object.subcategory == "other_space" %}
+            Övrigt_utrymme
+        {% elif object.subcategory == "other_service" %}
+            Övrigt_tjänst
+        {% endif %}
+              </h4>
+            <h2 className="offerTitle">
+              {this.props.title}
+            </h2>
+          </div>
+          <div className="small-12 columns">
+            <h3 className="offerUser">
+              {this.props.user_id}
+            </h3>
+          </div>
+        </div>
       </div></a>
     );
   }
 });
+
+
 
 var OfferBox = React.createClass({
   loadOffersFromServer: function() {
