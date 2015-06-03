@@ -4,49 +4,90 @@
 {% load staticfiles %}
 
 <div class="row" id="navigationbar">
-  <div class = "large-3 columns">
-    <ul class="left-button-group">
+  <div class = "small-3 columns">
       <a href="{% url 'index' %}" class="button">Tillbaka</a>
+  </div>
+  <div class="small-3 small-centered columns" id="blacktitle">
+    <img src="{{ STATIC_URL }}img/resursborsen.png" />
+  </div>
+  <!--<div class="large-6 columns">
+  </div>
+  <div class = "large-3 columns">
+    <a href="#" data-reveal-id="myModal" >Publicera erbjudande</a>
+    <div id="myModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+      <h2 id="modalTitle">Publicera erbjudande</h2>
+    </div>
+    <script type="text/jsx" src="{{ STATIC_URL }}javascripts/postoffer.js"></script>-->
+</div>
+
+<div class="row" id="searchbar">
+  <div class="small-6 small-centered columns">
+    <input type="text" placeholder="Sök" />
   </div>
 </div>
 
-<hr>
-
 <div class="row" id="content">
-  <div class="large-6 columns">
-    <!-- Picture goes here -->
+  <div class="row line_row">
+    <div class="small-6 small-centered columns">
+      <h4 className="offerCategory">
+      {% if object.category == "space"  %}
+    Utrymme
+{% elif object.category == "service" %}
+    Tjänster
+{% elif object.category == "other" %}
+    Övrigt
+{% endif %}/
+{% if object.subcategory == "storage"  %}
+    Lager
+{% elif object.subcategory == "office" %}
+    Kontor
+{% elif object.subcategory == "admin" %}
+    Administrativt
+{% elif object.subcategory == "other_space" %}
+    Övrigt_utrymme
+{% elif object.subcategory == "other_service" %}
+    Övrigt_tjänst
+{% endif %}
+      </h4>
+    </div>
+    <hr />
   </div>
-  <div class="large-6 columns">
+  <div class="large-6 columns" id="imgholder">
+    <img src="{{ STATIC_URL }}{{object.imgfile}}" />
+  </div>
+  <div class="large-6 columns" id="detailholder">
     <div class="row">
-      <div class="large-8 columns">
-        <h2 className="needTitle">
-          {{object.title}}
-        </h2>
-      </div>
-      <div class="large-4 columns">
-          <ul class="right-button-group">
+      <div id="edit_btn">
             <a href="#" class="button">Redigera</a>
       </div>
+        <h3 className="offerTitle" id="left_title">
+          {{object.title}}
+        </h3>
+        <h4 className="offerLocation">
+          {% if object.location == "umea"  %}
+    Umeå
+{% elif object.location == "lycksele" %}
+    Lycksele
+{% elif object.location == "vannas" %}
+    Vännäs
+{% endif %}
+        </h4>
+      
       <div class="row">
-        <img src="http://172.16.14.104:8000/static/{{object.imgfile}}" />
-        <div class="large-12 columns">
-          <p className="needDescription">
-              {{object.description}}
+        
+        <div class="large-12 columns" id="textholder">
+          <p class="offerDescription">
+              <pre> <div class="offerDescription"><p>{{object.description}}</p></div></pre>
           </p>
         </div>
       </div>
-      <h4 className="needLocation">
-            {{object.location}}
-          </h4>
-          <h4 className="needCategory">
-            {{object.category}}
-          </h4>
-          <h4 className="needSubcategory">
-            {{object.subcategory}}
-          </h4>
+      
+          
           
           <p className="createdUpdated">
             Skapad: {{object.created_at}}.
+            <br />
+            Uppdaterad senast: {{object.updated_at}}.
           </p>
       <div class="row">
         <div class ="large-3 columns">
@@ -54,19 +95,32 @@
         </div>
       </div>
       <div class="row">
-        <div class="large-4 columns">
-          <h3 className="needUser">
-            {{object.user_id}}
-          </h3>
+        <div class="small-6 columns">
+          <h5 className="offerUser">
+            {% if object.user_id.id == 17  %}
+            Företag: Team-E.
+        {% elif object.user_id.id == 18 %}
+            Företag: Pitchbolaget AB.
+            {% endif %}
+          </h5>
+          <p>
+            {% if object.user_id.id == 17  %}
+            Telefon: 070-00 00 000.
+        {% elif object.user_id.id == 18 %}
+            Telefon: 070-11 11 111.
+            {% endif %}
+            <br />
+            {% if object.user_id.id == 17  %}
+            Adress: E-gatan 100.
+        {% elif object.user_id.id == 18 %}
+            Adress: Pitchgränd 11
+            {% endif %}
+          </p>
+
         </div>
       </div>
     </div>
-    <p>
-      Uppdaterad senast: {{object.updated_at}}.
-    </p>
   </div>      
 </div>
-
-<hr>
 
 {% endblock %}

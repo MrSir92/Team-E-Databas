@@ -49,8 +49,13 @@ body {
   margin-top: 10px;
 }
 
+.offerDescription {
+  clear:both;
+  max-width: 500px;
+}
 
-#blacktitle {
+#title-img {
+  padding-top: 80px;
 }
 
 h1, h3, h4, h5, h6{
@@ -63,17 +68,30 @@ h2 {
 
 p {
   font-family: 'Source Sans Pro', sans-serif;
+  max-width: 500px;
 }
 
 pre {
   font-family: 'Source Sans Pro', sans-serif;
+  max-width: 500px;
+}
 
+#textholder p {
+  max-width: 500px;
 }
 
 .button {
-  background-color: #f7c027;
+  background-color: #f0b017;
   border-radius: 5px 5px;
   white-space: nowrap;
+}
+
+.edit_button {
+  color: #f0b020;
+  background-color: #fbefaf;
+  border-radius: 5px 5px;
+  border-width: 1px;
+  border-color: #f7c027;
 }
 
 .button:hover {
@@ -103,6 +121,9 @@ hr {
   margin-left: -15px;
 }
 
+#header-navigation {
+  margin-top: 15px;
+}
 
 .filter-list {
   margin: auto;

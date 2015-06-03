@@ -58,7 +58,7 @@
   <div class="large-6 columns" id="detailholder">
     <div class="row">
       <div id="edit_btn">
-            <a href="#" class="button">Redigera</a>
+            <a href="#" class="button edit_button">Redigera</a>
       </div>
         <h3 className="offerTitle" id="left_title">
           {{object.title}}
@@ -75,9 +75,9 @@
       
       <div class="row">
         
-        <div class="large-12 columns">
-          <p className="offerDescription">
-              <pre>{{object.description}}</pre>
+        <div class="large-12 columns" id="textholder">
+          <p class="offerDescription">
+              <pre> <div class="offerDescription"><p>{{object.description}}</p></div></pre>
           </p>
         </div>
       </div>

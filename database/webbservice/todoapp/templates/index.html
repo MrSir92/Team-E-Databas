@@ -2,16 +2,17 @@
 {% block title %}Home{% endblock%}
 {% block content %}
 {% load staticfiles %}
+<div class="row" id="header-navigation">
 	<div class="large-3 columns">
       <a href="#" class="button">Profil</a>
   </div>
   <div class="large-9 columns">
-    <ul class="right button-group">
-      <li><a href="#" class="button">Link 1</a></li>
-      <li><a href="#" class="button">Link 2</a></li>
-      <li><a href="#" class="button">Link 3</a></li>
-      <li><a href="#" class="button">Link 4</a></li>
-    </ul>
+    <a href="#" class="button right" data-reveal-id="myModal">Tryck här för att publicera ett erbjudande!</a>
+
+    <div id="myModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+      <h2 id="modalTitle">Publicera erbjudande</h2>
+    </div>
+    <script type="text/jsx" src="{% static 'javascripts/postoffer.js' %}"></script>
   </div>
 </div>
  
@@ -19,7 +20,7 @@
 <div class="row" style="height: 300px; width:100%" id="header-img">
   <div id="title-img" class="large-12 columns">
     <div class="small-4 small-centered columns" style="vertical-align: middle;" id="whitetitle">
-      <img src="{{ STATIC_URL }}img/resursborsen_white.png" />
+      <img src="{{ STATIC_URL }}img/resursborsen_white.png" id="title_img"/>
     </div>
   </div>
 </div>
@@ -39,7 +40,7 @@
 
 
 
-<div class="small-12 columns" id="container">
+<div class="small-9 small-centered columns" id="container">
   <div class="small-4 columns" id="filtersidebar">
     </div>
     <script type="text/jsx" src="{% static 'javascripts/getofferfilters.js' %}"></script>
@@ -58,12 +59,7 @@
   </div>
 </div>
  
-<a href="#" data-reveal-id="myModal">Tryck här för att publicera ett erbjudande!</a>
 
-<div id="myModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
-  <h2 id="modalTitle">Publicera erbjudande</h2>
-</div>
-<script type="text/jsx" src="{% static 'javascripts/postoffer.js' %}"></script>
 
 
 {% endblock %}
