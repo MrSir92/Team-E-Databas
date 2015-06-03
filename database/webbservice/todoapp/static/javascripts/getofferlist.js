@@ -1,6 +1,31 @@
+var First = "";
+var Second = "";
+
 var Offer = React.createClass({
   render: function() {
+    if (this.props.category == "space") {
+                First = "Utrymme/"
+              }
+            else if (this.props.category == "service") {
+              First = "Tjänster/"
+            }
+            else if (this.props.category == "other") {
+              First = "Övrigt/"
+            }
+            if (this.props.subcategory == "storage") {
+              Second = "Lager."
+            }
+            else if (this.props.subcategory == "office") {
+              Second = "Kontor."
+            }
+            else if (this.props.subcategory == "admin") 
+            {Second = "Administrativt."}
+            else if (this.props.subcategory == "other_space") 
+            {Second = "Övrigt_utrymme."}
+            else if (this.props.subcategory == "other_service") 
+            {Second = "Övrigt_tjänst."}
     return (
+      <div className="row">
       <a href={"offers/" + this.props.id + "/"}><div className="offer">
         <div className="small-4 columns">
           <img src={"static/" + this.props.imgfile} />
@@ -8,24 +33,7 @@ var Offer = React.createClass({
         <div className="small-6 columns">
           <div className="small-12 columns">
             <h4 className="offerCategory">
-              {% if this.props.category == "space"  %}
-            Utrymme
-        {% elif object.category == "service" %}
-            Tjänster
-        {% elif object.category == "other" %}
-            Övrigt
-        {% endif %}/
-        {% if object.subcategory == "storage"  %}
-            Lager
-        {% elif object.subcategory == "office" %}
-            Kontor
-        {% elif object.subcategory == "admin" %}
-            Administrativt
-        {% elif object.subcategory == "other_space" %}
-            Övrigt_utrymme
-        {% elif object.subcategory == "other_service" %}
-            Övrigt_tjänst
-        {% endif %}
+              {First}{Second}
               </h4>
             <h2 className="offerTitle">
               {this.props.title}
@@ -38,6 +46,7 @@ var Offer = React.createClass({
           </div>
         </div>
       </div></a>
+      </div>
     );
   }
 });
