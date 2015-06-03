@@ -27,7 +27,7 @@ var Offer = React.createClass({
     return (
       <div className="row list_row">
       <a href={"offers/" + this.props.id + "/"}><div className="offer">
-        <div className="small-4 columns">
+        <div className="small-6 columns">
           <img src={"static/" + this.props.imgfile} />
         </div>
         <div className="small-6 columns">
