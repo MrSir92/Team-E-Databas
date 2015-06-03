@@ -51,9 +51,14 @@ body {
 #blacktitle {
 }
 
+h1, h3, h4, h5, h6{
+  font-family: 'Source Sans Pro', sans-serif;
+}
 h2 {
+  font-family: 'Source Sans Pro', sans-serif;
   color: #f7c027;
 }
+
 
 .button {
   background-color: #f7c027;
