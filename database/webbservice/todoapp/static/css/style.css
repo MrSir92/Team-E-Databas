@@ -8,6 +8,7 @@ Version: 1
 
 body {
   background: #FFFFFF;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 #header-img {
@@ -32,7 +33,7 @@ body {
 }
 
 #searchbar {
-  padding-top: 50px;
+  padding-top: 58px;
   padding-bottom: 50px;
   background-color: #3c3c3c;
   max-width: 100%;
@@ -60,6 +61,9 @@ h2 {
   color: #f7c027;
 }
 
+p {
+  font-family: 'Source Sans Pro', sans-serif;
+}
 
 .button {
   background-color: #f7c027;
@@ -69,6 +73,10 @@ h2 {
 
 .button:hover {
   background-color: #f7c027;
+}
+
+.list_row {
+  
 }
 
 .filter-list {

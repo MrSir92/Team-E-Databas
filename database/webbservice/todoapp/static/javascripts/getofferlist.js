@@ -25,7 +25,7 @@ var Offer = React.createClass({
             else if (this.props.subcategory == "other_service") 
             {Second = "Övrigt_tjänst."}
     return (
-      <div className="row">
+      <div className="row list_row">
       <a href={"offers/" + this.props.id + "/"}><div className="offer">
         <div className="small-4 columns">
           <img src={"static/" + this.props.imgfile} />
