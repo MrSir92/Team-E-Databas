@@ -3,9 +3,8 @@
 {% block content %}
 {% load staticfiles %}
 	<div class="large-3 columns">
-    <ul class="left button-group">
-      <li><a href="#" class="button">Profil</a></li>
-    </div>
+      <a href="#" class="button">Profil</a>
+  </div>
   <div class="large-9 columns">
     <ul class="right button-group">
       <li><a href="#" class="button">Link 1</a></li>
@@ -17,17 +16,16 @@
 </div>
  
  
-<div class="row" style="height: 300px; overflow:hidden" id="header-img">
+<div class="row" style="height: 300px; width:100%" id="header-img">
   <div id="title-img" class="large-12 columns">
   </div>
 </div>
 
-<div class="row">
-  <div class="small-12 columns">
-    <img src="http://placehold.it/1000x400&amp;text=[%20img%201%20]">
+<div class="small-12 columns">
+  <div class="small-8 small-centered columns" id="searchcontainer">
+    <input type="text" />
   </div>
 </div>
-
 
 <div class="small-3 small-centered columns" id="togglebuttons">
   <ul class="tabs" data-tab>
@@ -36,8 +34,6 @@
   </ul>
 </div>
 
-
-<hr/>
 
 
 <div class="row" id="container">
@@ -57,26 +53,6 @@
   </div>
 </div>
 <script type="text/jsx" src="{% static 'javascripts/getofferlist.js' %}"></script>
-  <div class="small-4 columns">
-    <img src="http://placehold.it/400x300&text=[img]"/>
-  </div>
-</div>
-
-
-<div class="row">
-  <div class="large-12 columns" >
-    <div class="panel">
-      <h4>Get in touch!</h4>
-      <div class="row">
-        <div class="large-9 columns">
-          <p>We'd love to hear from you, you attractive person you.</p>
-        </div>
-        <div class="large-3 columns">
-          <a href="#" class="radius button right">Contact Us</a>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
  
 <a href="#" data-reveal-id="myModal">Tryck här för att publicera ett erbjudande!</a>
