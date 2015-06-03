@@ -27,7 +27,7 @@
 </div>
 
 <div class="row" id="content">
-  <div class="row">
+  <div class="row line_row">
     <div class="small-6 small-centered columns">
       <h4 className="offerCategory">
       {% if object.category == "space"  %}
@@ -52,10 +52,10 @@
     </div>
     <hr />
   </div>
-  <div class="large-6 columns">
+  <div class="large-6 columns" id="imgholder">
     <img src="{{ STATIC_URL }}{{object.imgfile}}" />
   </div>
-  <div class="large-6 columns">
+  <div class="large-6 columns" id="detailholder">
     <div class="row">
       <div id="edit_btn">
             <a href="#" class="button">Redigera</a>
@@ -77,7 +77,7 @@
         
         <div class="large-12 columns">
           <p className="offerDescription">
-              {{object.description}}
+              <pre>{{object.description}}</pre>
           </p>
         </div>
       </div>
@@ -122,7 +122,5 @@
     </div>
   </div>      
 </div>
-
-<hr>
 
 {% endblock %}
