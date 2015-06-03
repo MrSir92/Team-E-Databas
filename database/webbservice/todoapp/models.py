@@ -1,6 +1,9 @@
 from django.db import models
 
 # Our todo-list requires a set of lists and tasks.
+class UserManager(models.Manager):
+    def get_by_natural_key(self, email, phone):
+        return self.get(email=email, phone=phone)
 
 class User(models.Model):
     """
@@ -12,6 +15,12 @@ class User(models.Model):
     adress = models.CharField(max_length=128, blank=False)
     description = models.TextField(blank=True)
     email = models.CharField(max_length=128, blank=False)
+
+    def natural_key(self):
+        return(self.email, phone)
+
+    class Meta:
+        unique_together = (('email', 'phone'),)
 
     def __unicode__(self):
         return self.name
@@ -46,6 +55,10 @@ class Offer(models.Model):
     subcategory = models.CharField(max_length=128, blank=False)
     location = models.CharField(max_length=128, blank=False)
     imgfile = models.CharField(max_length=256, blank=True)
+
+    def natural_key(self):
+        return(self.title,) + self.user_id.natural_key()
+    natural_key.dependencies = ['example_app.person']
     
     def __unicode__(self):
         return self.title
