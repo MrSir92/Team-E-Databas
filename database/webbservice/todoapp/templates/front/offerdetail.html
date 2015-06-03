@@ -5,16 +5,55 @@
 
 <div class="row" id="navigationbar">
   <div class = "large-3 columns">
-    <ul class="left-button-group">
       <a href="{% url 'index' %}" class="button">Tillbaka</a>
+  </div>
+  <div class="large-3 columns" id="blacktitle">
+  </div>
+  <!--<div class="large-6 columns">
+  </div>
+  <div class = "large-3 columns">
+    <a href="#" data-reveal-id="myModal" >Publicera erbjudande</a>
+    <div id="myModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+      <h2 id="modalTitle">Publicera erbjudande</h2>
+    </div>
+    <script type="text/jsx" src="{{ STATIC_URL }}javascripts/postoffer.js"></script>-->
+</div>
+
+<div class="row" id="searchbar">
+  <div class="large-3 columns">
+  </div>
+  <div class="large-6 columns">
+    <input type="text" placeholder="Sök" />
+  </div>
+  <div class="large-3 columns">
   </div>
 </div>
 
-<hr>
-
 <div class="row" id="content">
+  <div class="row">
+    <h4 className="offerCategory">
+      {% if object.category == "space"  %}
+    Utrymme
+{% elif object.category == "service" %}
+    Tjänster
+{% elif object.category == "other" %}
+    Övrigt
+{% endif %}/
+{% if object.subcategory == "storage"  %}
+    Lager
+{% elif object.subcategory == "office" %}
+    Kontor
+{% elif object.subcategory == "admin" %}
+    Administrativt
+{% elif object.subcategory == "other_space" %}
+    Övrigt_utrymme
+{% elif object.subcategory == "other_service" %}
+    Övrigt_tjänst
+{% endif %}
+          </h4>
+  </div>
   <div class="large-6 columns">
-    <!-- Picture goes here -->
+    <img src="{{ STATIC_URL }}{{object.imgfile}}" />
   </div>
   <div class="large-6 columns">
     <div class="row">
@@ -28,7 +67,7 @@
             <a href="#" class="button">Redigera</a>
       </div>
       <div class="row">
-        <img src="http://172.16.14.104:8000/static/{{object.imgfile}}" />
+        
         <div class="large-12 columns">
           <p className="offerDescription">
               {{object.description}}
@@ -38,12 +77,7 @@
       <h4 className="offerLocation">
             {{object.location}}
           </h4>
-          <h4 className="offerCategory">
-            {{object.category}}
-          </h4>
-          <h4 className="offerSubcategory">
-            {{object.subcategory}}
-          </h4>
+          
           
           <p className="createdUpdated">
             Skapad: {{object.created_at}}.

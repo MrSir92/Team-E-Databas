@@ -25,6 +25,28 @@ body {
   display:none;
 }
 
+#navigationbar {
+  padding-top: 10px;
+  background-color: #FFFFFF;
+  max-width: 100%;
+}
+
+#searchbar {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: #3c3c3c;
+  max-width: 100%;
+}
+
+#content {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#blacktitle {
+
+}
+
 .filter-list {
   margin: auto;
   width: 300px;
