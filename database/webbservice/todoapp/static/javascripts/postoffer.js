@@ -1,4 +1,4 @@
-var user = 15;
+var user = 16;
 var OfferForm = React.createClass({
   handleSubmit: function(e) {
     e.preventDefault();
@@ -7,16 +7,18 @@ var OfferForm = React.createClass({
     var subcategory = React.findDOMNode(this.refs.subcategory).value.trim();
     var location = React.findDOMNode(this.refs.location).value.trim();
     var description = React.findDOMNode(this.refs.description).value.trim();
-    var user_id = 15;
+    var user_id = 16;
     var imgfile = React.findDOMNode(this.refs.imgfile).value.trim();
     if (!title || !category || !subcategory || !location || !description) {
       return;
     }
 
-    var data = new FormData();
-    data = imgfile.append('SelectedFile', imgfile.file[0]);
+    imgfile = imgfile.toString();
+    var filename = imgfile.replace(/^.*\\/, "");
+    filename = "img/" + filename;
+    console.log(filename);
 
-    var toSend = {"title": title, "location": location, "user_id": 15, "category": category, "subcategory": subcategory, "description": description, "imgfile": imgfile };
+    var toSend = {"title": title, "location": location, "user_id": 16, "category": category, "subcategory": subcategory, "description": description, "imgfile": filename };
     
     $.ajax({
       url: this.props.url,
