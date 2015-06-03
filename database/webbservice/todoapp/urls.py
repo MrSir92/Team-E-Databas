@@ -6,7 +6,7 @@ from todoapp import views
 urlpatterns = [
     # url(r'^tasks/$', views.TaskList.as_view()),
     # url(r'^tasks/(?P<pk>[0-9]+)/$', views.TaskDetail.as_view()),
-    url(r'^$', views.Index.as_view()),
+    url(r'^$', views.Index.as_view(), name="index"),
     url(r'^needs/$', views.ListNeed.as_view()),
     url(r'^offers/$', views.ListOffer.as_view()),
     url(r'^users/$', views.CreateUser.as_view()),

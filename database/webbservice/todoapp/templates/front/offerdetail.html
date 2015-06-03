@@ -6,7 +6,7 @@
 <div class="row" id="navigationbar">
   <div class = "large-3 columns">
     <ul class="left-button-group">
-      <a href="#" class="button">Tillbaka</a>
+      <a href="{% url 'index' %}" class="button">Tillbaka</a>
   </div>
 </div>
 
@@ -28,6 +28,7 @@
             <a href="#" class="button">Redigera</a>
       </div>
       <div class="row">
+        <img src="http://172.16.14.104:8000/static/{{object.imgfile}}" />
         <div class="large-12 columns">
           <p className="offerDescription">
               {{object.description}}
