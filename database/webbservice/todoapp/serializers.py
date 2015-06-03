@@ -44,7 +44,7 @@ class OfferSerializer(serializers.ModelSerializer):
     """
     A serialzier for our Offer-model.
     """
-
+    
 
     class Meta:
         model = Offer
@@ -58,7 +58,7 @@ class OfferSerializer(serializers.ModelSerializer):
             'category',
             'subcategory',
             'description',
-            'imgfile'
+            'imgfile',
         )
 
 

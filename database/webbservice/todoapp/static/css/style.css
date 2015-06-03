@@ -6,7 +6,7 @@ Version: 1
 /* --- G E N E R A L --- */
 
 body {
-  background: #AAAAAA;
+  background: #FFFFFF;
 }
 
 #header-img {
@@ -28,7 +28,6 @@ body {
 #navigationbar {
   padding-top: 10px;
   background-color: #FFFFFF;
-  max-width: 100%;
 }
 
 #searchbar {
@@ -44,6 +43,19 @@ body {
 }
 
 #blacktitle {
+}
+
+h2 {
+  color: #f7c027;
+}
+
+.button {
+  background-color: #f7c027;
+  border-radius: 5px 5px;
+}
+
+.button:hover {
+  background-color: #f7c027;
 }
 
 .filter-list {

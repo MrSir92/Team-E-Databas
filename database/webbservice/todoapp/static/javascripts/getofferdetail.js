@@ -1,5 +1,5 @@
 var urlPath = window.location.pathname.substring(1);
-urlPath = "http://172.16.0.224:8000/" + urlPath;
+urlPath = "http://172.16.14.104:8000/" + urlPath;
 /*var Offer = React.createClass({
   render: function() {
     return (
