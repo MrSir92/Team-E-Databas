@@ -42,6 +42,12 @@ body {
   padding-bottom: 10px;
 }
 
+#edit_btn {
+  float: right;
+  margin-top: 10px;
+}
+
+
 #blacktitle {
 }
 
@@ -52,6 +58,7 @@ h2 {
 .button {
   background-color: #f7c027;
   border-radius: 5px 5px;
+  white-space: nowrap;
 }
 
 .button:hover {

@@ -57,18 +57,22 @@
   </div>
   <div class="large-6 columns">
     <div class="row">
-      <div class="large-8 columns">
-        <h3 className="offerTitle">
+      <div id="edit_btn">
+            <a href="#" class="button">Redigera</a>
+      </div>
+        <h3 className="offerTitle" id="left_title">
           {{object.title}}
         </h3>
         <h4 className="offerLocation">
-            {{object.location}}
+          {% if object.location == "umea"  %}
+    Umeå
+{% elif object.location == "lycksele" %}
+    Lycksele
+{% elif object.location == "vannas" %}
+    Vännäs
+{% endif %}
         </h4>
-      </div>
-      <div class="large-4 columns">
-          <ul class="right-button-group">
-            <a href="#" class="button">Redigera</a>
-      </div>
+      
       <div class="row">
         
         <div class="large-12 columns">
