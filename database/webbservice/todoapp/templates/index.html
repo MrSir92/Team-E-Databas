@@ -21,9 +21,9 @@
   </div>
 </div>
 
-<div class="small-12 columns">
+<div class="small-12 columns" id="searchbar">
   <div class="small-8 small-centered columns" id="searchcontainer">
-    <input type="text" />
+    <input type="text" placeholder="Sök"/>
   </div>
 </div>
 
@@ -36,23 +36,23 @@
 
 
 
-<div class="row" id="container">
+<div class="small-12 columns" id="container">
   <div class="small-4 columns" id="filtersidebar">
+    </div>
+    <script type="text/jsx" src="{% static 'javascripts/getofferfilters.js' %}"></script>
+    <script src="{% static 'javascripts/getofferfilters.js' %}" type="text/jsx"></script>
+    <div class="tabs-content">
+      <div class="small-4 small-centered columns" id="listcontainer">
+        <section role="needspanel" aria-hidden="false" class="content active" id="needs">
+          <h2>First panel content goes here...</h2>
+        </section>
+        <section role="offerspanel" aria-hidden="true" class="content" id="offers">
+          <h2>Second panel content goes here...</h2>
+        </section>
+      </div>
+    </div>
+    <script type="text/jsx" src="{% static 'javascripts/getofferlist.js' %}"></script>
   </div>
-</div>
-<script type="text/jsx" src="{% static 'javascripts/getofferfilters.js' %}"></script>
-<script src="{% static 'javascripts/getofferfilters.js' %}" type="text/jsx"></script>
-<div class="tabs-content">
-  <div class="small-4 small-centered columns" id="listcontainer">
-    <section role="needspanel" aria-hidden="false" class="content active" id="needs">
-      <h2>First panel content goes here...</h2>
-    </section>
-    <section role="offerspanel" aria-hidden="true" class="content" id="offers">
-      <h2>Second panel content goes here...</h2>
-    </section>
-  </div>
-</div>
-<script type="text/jsx" src="{% static 'javascripts/getofferlist.js' %}"></script>
 </div>
  
 <a href="#" data-reveal-id="myModal">Tryck här för att publicera ett erbjudande!</a>
