@@ -16,7 +16,36 @@ h1 {
   text-align: center;
 }
 
+.filter_title {
+  margin: 0px;
+  margin-bottom: 5px;
+  width: 100%;
+}
+
+ul {
+  list-style-type: none;
+
+}
+
+.filterBox ul {
+  margin-left: 0px;
+  margin-bottom: 5px;
+}
+
 #offer h2 {
+  font-size: 1.4rem;
+}
+
+#filtersidebar h2 {
+  margin-left: 0px;
+  font-size: 1.4rem;
+}
+
+#filtersidebar li {
+  margin-left: 0px;
+}
+
+#list-item h2 {
   font-size: 1.4rem;
 }
 
