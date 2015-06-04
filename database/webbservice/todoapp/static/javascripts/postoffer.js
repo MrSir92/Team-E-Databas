@@ -9,6 +9,10 @@ var OfferForm = React.createClass({
     var description = React.findDOMNode(this.refs.description).value.trim();
     var user_id = 17;
     var imgfile = React.findDOMNode(this.refs.imgfile).value.trim();
+
+    if (category == "other") {
+      subcategory = "other_other";
+    }
     if (!title || !category || !subcategory || !location || !description) {
       return;
     }
@@ -71,17 +75,17 @@ var OfferForm = React.createClass({
         </div>
         <div className="row">
           <div className="large-9 columns">
-            <label>Subkategori
+          <label>Subkategori
               <select id="subcategory" ref="subcategory">
                 <option value="storage">Lager</option>
                 <option value="office">Kontor</option>
                 <option value="admin">Administration</option>
+                <option value="other_service">Övrigt_tjänst</option>
                 <option value="other_space">Övrigt_utrymme</option>
-                <option value="other_service">Övrigt_tjänster</option>
                 <option value="other_other">Övrigt_övrigt</option>
-              </select>
-            </label>
-          </div>
+                </select>
+                </label>
+                </div>
         </div>
         <div className="row">
           <div className="large-9 columns">
