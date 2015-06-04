@@ -135,12 +135,12 @@ var FilterList = React.createClass({
           <li className="button filter_title">Utrymme: {space_filter}</li>
               <li>Lager: {storage_filter}</li>
               <li>Kontor: {office_filter}</li>
-              <li>Övrigt_utrymme: {other_space_filter}</li>
+              <li>Övrigt: {other_space_filter}</li>
             
             
           <li className="button filter_title">Tjänster: {service_filter}</li>
             <li>Administratör: {admin_filter}</li>
-            <li>Övrigt_tjänster: {other_service_filter}</li>
+            <li>Övrigt: {other_service_filter}</li>
           
           <li className="button filter_title">Övrigt: {other_filter}</li>
         </ul>

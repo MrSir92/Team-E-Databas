@@ -27,15 +27,16 @@ var Offer = React.createClass({
     return (
       <div className="row list_row" id="list-item">
       <div className="yellow small-8 columns"></div>
-      <h4 className="small-2 small-centered columns">
-              {First}{Second}
-              </h4>
+      
       <a href={"offers/" + this.props.id + "/"}><div className="offer">
-        <div className="small-4 columns">
+        <div className="small-3 columns">
           <img src={"static/" + this.props.imgfile} />
         </div>
-        <div className="small-4 columns">
-          <div className="small-12 columns">
+        <div className="small-6 columns">
+          <div className="small-12 columns" id="offerdetail-text">
+          <h4>
+              {First}{Second}
+              </h4>
             <h2 className="offerTitle">
               {this.props.title}
             </h2>
