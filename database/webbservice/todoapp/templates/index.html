@@ -42,37 +42,18 @@
 
 <div class="small-9 small-centered columns" id="container">
   <div class="small-4 columns" id="filtersidebar">
-  <ul class="accordion" data-accordion>
-  <li class="accordion-navigation">
-    <a href="#panel1a">Accordion 1</a>
-    <div id="panel1a" class="content active">
-      Panel 1. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    </div>
-  </li>
-  <li class="accordion-navigation">
-    <a href="#panel2a">Accordion 2</a>
-    <div id="panel2a" class="content">
-      Panel 2. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    </div>
-  </li>
-  <li class="accordion-navigation">
-    <a href="#panel3a">Accordion 3</a>
-    <div id="panel3a" class="content">
-      Panel 3. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    </div>
-  </li>
-</ul>
+  
   </div>
     <script type="text/jsx" src="{% static 'javascripts/getofferfilters.js' %}"></script>
     <script src="{% static 'javascripts/getofferfilters.js' %}" type="text/jsx"></script>
-    <div class="tabs-content">
-      <div class="small-4 small-centered columns" id="listcontainer">
-        <section role="needspanel" aria-hidden="false" class="content active" id="needs">
+    <div class="small-12 small-centered columns">
+      <div class="tabs-content" id="listcontainer">
+        <div role="needspanel" aria-hidden="false" class="content active" id="needs">
           <h2>First panel content goes here...</h2>
-        </section>
-        <section role="offerspanel" aria-hidden="true" class="content" id="offers">
+        </div>
+        <div role="offerspanel" aria-hidden="true" class="content" id="offers">
           <h2>Second panel content goes here...</h2>
-        </section>
+        </div>
       </div>
     </div>
     <script type="text/jsx" src="{% static 'javascripts/getofferlist.js' %}"></script>

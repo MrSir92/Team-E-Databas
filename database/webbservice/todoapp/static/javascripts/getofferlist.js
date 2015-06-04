@@ -26,15 +26,16 @@ var Offer = React.createClass({
             {Second = "Övrigt_tjänst."}
     return (
       <div className="row list_row">
+      <div className="yellow small-8 columns"></div>
+      <h4 className="small-2 small-centered columns">
+              {First}{Second}
+              </h4>
       <a href={"offers/" + this.props.id + "/"}><div className="offer">
         <div className="small-4 columns">
           <img src={"static/" + this.props.imgfile} />
         </div>
-        <div className="small-6 columns">
+        <div className="small-4 columns">
           <div className="small-12 columns">
-            <h4 className="offerCategory">
-              {First}{Second}
-              </h4>
             <h2 className="offerTitle">
               {this.props.title}
             </h2>
