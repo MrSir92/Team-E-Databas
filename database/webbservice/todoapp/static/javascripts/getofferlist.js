@@ -47,8 +47,6 @@ var Offer = React.createClass({
             <h2 className="offerTitle">
               {this.props.title}
             </h2>
-          </div>
-          <div className="small-12 columns">
             <h3 className="offerUser">
               {companyName}
             </h3>
