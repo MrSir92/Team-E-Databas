@@ -27,6 +27,14 @@ ul {
 
 }
 
+#selected_tab a {
+  background-color: #f7c027;
+}
+
+#tab a {
+  background-color: #d7a017;
+}
+
 #selected_tab {
   background-color: #f7c027;
 }
