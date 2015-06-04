@@ -27,6 +27,10 @@ ul {
 
 }
 
+#selected_tab {
+  background-color: #f7c027;
+}
+
 .filterBox ul {
   margin-left: 0px;
   margin-bottom: 5px;
