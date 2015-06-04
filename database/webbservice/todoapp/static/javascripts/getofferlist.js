@@ -1,5 +1,6 @@
 var First = "";
 var Second = "";
+var companyName= "";
 
 var Offer = React.createClass({
   render: function() {
@@ -24,6 +25,12 @@ var Offer = React.createClass({
             {Second = "Övrigt_utrymme."}
             else if (this.props.subcategory == "other_service") 
             {Second = "Övrigt_tjänst."}
+          if (this.props.user_id == "17") {
+              companyName = "Team-E."
+            }
+            else if (this.props.user_id == "18") {
+              companyName = "Pitchbolaget AB."
+            }
     return (
       <div className="row list_row" id="list-item">
       <div className="yellow small-8 columns"></div>
@@ -43,7 +50,7 @@ var Offer = React.createClass({
           </div>
           <div className="small-12 columns">
             <h3 className="offerUser">
-              {this.props.user_id}
+              {companyName}
             </h3>
           </div>
         </div>
