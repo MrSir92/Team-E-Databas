@@ -116,6 +116,6 @@ var OfferList = React.createClass({
 });
 
 React.render(
-  <OfferBox url="offers/" pollInterval={2000} />,
+  <OfferBox url="offers/" pollInterval={10000} />,
   document.getElementById('listcontainer')
 );
