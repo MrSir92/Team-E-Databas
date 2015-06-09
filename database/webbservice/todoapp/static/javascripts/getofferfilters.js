@@ -129,19 +129,21 @@ var FilterList = React.createClass({
     return (
       <div className="filterList">
         <h2>Kategorier</h2>
-          <ul>
+          <ul className="offerfilters">
           <li className="button filter_title">Alla erbjudanden: {all}
           </li>
-          <li className="button filter_title">Utrymme: {space_filter}</li>
+          <li className="button filter_title"><a href="#space-filters">Utrymme: {space_filter}</a></li>
+            <ul id="space-filters">
               <li>Lager: {storage_filter}</li>
               <li>Kontor: {office_filter}</li>
               <li>Övrigt: {other_space_filter}</li>
+            </ul>
             
-            
-          <li className="button filter_title">Tjänster: {service_filter}</li>
+          <li className="button filter_title"><a href="#service-filters">Tjänster: {service_filter}</a></li>
+          <ul id="service-filters">
             <li>Administratör: {admin_filter}</li>
             <li>Övrigt: {other_service_filter}</li>
-          
+          </ul>
           <li className="button filter_title">Övrigt: {other_filter}</li>
         </ul>
         <h2>Geografiskt</h2>

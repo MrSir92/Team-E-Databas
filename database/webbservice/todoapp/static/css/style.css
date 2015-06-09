@@ -27,19 +27,15 @@ ul {
 
 }
 
-#selected_tab a {
+.tabs .tab-title a {
   color: #f0b020;
   background-color: #fbefaf;
   border-width: 1px;
   border-color: #f7c027;
 }
 
-#tab a {
+.tabs .tab-title.active a {
   color: #FFFFFF;
-  background-color: #f7c027;
-}
-
-#selected_tab {
   background-color: #f7c027;
 }
 
@@ -48,7 +44,15 @@ ul {
   margin-bottom: 5px;
 }
 
+#offers {
+  display: none;
+}
+
 #offer h2 {
+  font-size: 1.4rem;
+}
+
+#need h2 {
   font-size: 1.4rem;
 }
 
@@ -61,6 +65,15 @@ ul {
   margin-left: 0px;
 }
 
+#needfiltersidebar h2 {
+  margin-left: 0px;
+  font-size: 1.5rem;
+}
+
+#needfiltersidebar li {
+  margin-left: 0px;
+}
+
 #list-item {
   max-height: 150px;
   padding-top: 10px;
@@ -68,6 +81,12 @@ ul {
 }
 
 #offerdetail-text {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  margin-left: -30px;
+}
+
+#needdetail-text {
   margin-bottom: 10px;
   margin-top: 10px;
   margin-left: -30px;
@@ -130,6 +149,11 @@ ul {
 }
 
 .offerDescription {
+  clear:both;
+  max-width: 500px;
+}
+
+.needDescription {
   clear:both;
   max-width: 500px;
 }
