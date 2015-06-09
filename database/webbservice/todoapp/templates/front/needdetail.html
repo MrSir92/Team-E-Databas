@@ -58,7 +58,11 @@
   <div class="large-6 columns" id="detailholder">
     <div class="row">
       <div id="edit_btn">
-            <a href="#" class="button">Redigera</a>
+            <a href="#" class="button" data-reveal-id:"myModal">Redigera</a>
+              <div id="myModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+          <h2 id="modalTitle">Spara</h2>
+        </div>
+        <script type="text/jsx" src="{% static 'javascripts/putneed.js' %}"></script>
       </div>
         <h3 className="offerTitle" id="left_title">
           {{object.title}}
