@@ -12,7 +12,7 @@
     <div id="myModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
       <h2 id="modalTitle">Publicera erbjudande</h2>
     </div>
-    <script type="text/jsx" src="{% static 'javascripts/postoffer.js' %}"></script>
+    
   </div>
 </div>
  
@@ -37,36 +37,42 @@
     <li class="tab-title" role="presentational"><a href="#offers" role="tab" tabindex="0" aria-selected="false" controls="offerspanel">Erbjuds</a></li>
   </ul>
 </div>
-<script type="text/javascript" src="{% static 'javascripts/switchtabs.js' %}"></script>
+
 
 
 <div class="small-9 small-centered columns" id="offers">
   <div class="small-3 columns" id="filtersidebar">
   </div>
-  <script type="text/javascript" src="{% static 'javascripts/switchfilters.js' %}"></script>
-    <script type="text/jsx" src="{% static 'javascripts/getofferfilters.js' %}"></script>
+  
+    
     <div class="small-9 columns">
       <div class="tabs-content" id="listcontainer">
         <div role="offerspanel" aria-hidden="false" class="content" id="offerslist">
         </div>
       </div>
-    <script type="text/jsx" src="{% static 'javascripts/getofferlist.js' %}"></script>
+    
   </div>
 </div>
  
  <div class="small-9 small-centered columns" id="needs">
   <div class="small-3 columns" id="needfiltersidebar">
   </div>
-    <script type="text/jsx" src="{% static 'javascripts/getneedfilters.js' %}"></script>
+    
     <div class="small-9 columns">
       <div class="tabs-content" id="needlistcontainer">
         <div role="needspanel" aria-hidden="false" class="content active" id="needslist">
         </div>
       </div>
-    <script type="text/jsx" src="{% static 'javascripts/getneedlist.js' %}"></script>
+    
   </div>
 </div>
 
-
+<script type="text/jsx" src="{% static 'javascripts/postoffer.js' %}"></script>
+<script type="text/jsx" src="{% static 'javascripts/getofferfilters.js' %}"></script>
+<script type="text/jsx" src="{% static 'javascripts/getneedfilters.js' %}"></script>
+<script type="text/jsx" src="{% static 'javascripts/getofferlist.js' %}"></script>
+<script type="text/jsx" src="{% static 'javascripts/getneedlist.js' %}"></script>
+<script type="text/javascript" src="{% static 'javascripts/switchtabs.js' %}"></script>
+<script type="text/javascript" src="{% static 'javascripts/switchfilters.js' %}"></script>
 
 {% endblock %}

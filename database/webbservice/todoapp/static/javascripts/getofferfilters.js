@@ -129,23 +129,25 @@ var FilterList = React.createClass({
     return (
       <div className="filterList">
         <h2>Kategorier</h2>
-          <ul className="offerfilters">
-          <li className="button filter_title">Alla erbjudanden: {all}
+        <ul className="offerfilters">
+          <li className="button filter_title"><a href="#">Alla erbjudanden: {all}</a>
           </li>
           <li className="button filter_title"><a href="#space-filters">Utrymme: {space_filter}</a></li>
-            <ul id="space-filters">
+            
+            
+          <li className="button filter_title"><a href="#service-filters">Tjänster: {service_filter}</a></li>
+          
+          <li className="button filter_title"><a href="#">Övrigt: {other_filter}</a></li>
+        </ul>
+        <ul id="space-filters">
               <li>Lager: {storage_filter}</li>
               <li>Kontor: {office_filter}</li>
               <li>Övrigt: {other_space_filter}</li>
             </ul>
-            
-          <li className="button filter_title"><a href="#service-filters">Tjänster: {service_filter}</a></li>
-          <ul id="service-filters">
+            <ul id="service-filters">
             <li>Administratör: {admin_filter}</li>
             <li>Övrigt: {other_service_filter}</li>
           </ul>
-          <li className="button filter_title">Övrigt: {other_filter}</li>
-        </ul>
         <h2>Geografiskt</h2>
         <ul>
           <li>Umeå: {umea_filter}</li>
@@ -158,6 +160,42 @@ var FilterList = React.createClass({
 });
 
 React.render(
-  <FilterBox url="offers/filter/" pollInterval={2000} />,
+  <FilterBox url="offers/filter/" pollInterval={10000} />,
   document.getElementById('filtersidebar')
 );
+
+$('ul.offerfilters').each(function(){
+    // For each set of tabs, we want to keep track of
+    // which tab is active and it's associated content
+    var $active, $content, $links = $(this).find('a');
+
+    // If the location.hash matches one of the links, use that as the active tab.
+    // If no match is found, use the first link as the initial active tab.
+    $active = $($links.filter('[href="'+location.hash+'"]')[0] || $links[0]);
+    $active.addClass('active');
+
+    $content = $($active[0].hash);
+
+    // Hide the remaining content
+    $links.not($active).each(function () {
+      $(this.hash).hide();
+    });
+
+    // Bind the click event handler
+    $(this).on('click', 'a', function(e){
+      // Make the old tab inactive.
+      $active.parent().removeClass('active');
+      $content.hide();
+
+      // Update the variables with the new link and content
+      $active = $(this);
+      $content = $(this.hash);
+
+      // Make the tab active.
+      $active.parent().addClass('active');
+      $content.show();
+
+      // Prevent the anchor's default click action
+      e.preventDefault();
+    });
+  });
