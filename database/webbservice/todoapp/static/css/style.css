@@ -35,6 +35,18 @@ pre {
  word-wrap: break-word;       /* Internet Explorer 5.5+ */
 }
 
+#servicefilters {
+  display: block;
+}
+
+#spacefilters {
+  display: block;
+}
+
+#emptybox {
+  display: block;
+}
+
 .tabs .tab-title a {
   color: #f0b020;
   background-color: #fbefaf;

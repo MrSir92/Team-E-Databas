@@ -13,6 +13,7 @@ var other_space_filter = 0;
 var admin_filter = 0;
 var other_service_filter = 0;
 var other_other_filter = 0;
+var toReturn = <ul></ul>;
 
 var FilterBox = React.createClass({
   loadFiltersFromServer: function() {
@@ -45,6 +46,48 @@ var FilterBox = React.createClass({
     );
   }
 });
+
+var ListItem = React.createClass({
+    getInitialState: function() {
+        return {
+            isSelected: false
+        };
+    },
+    handleClick: function() {
+        if(this.state.isSelected == false) {
+          this.setState({
+              isSelected: true
+          })
+        } else {
+          this.setState({ isSelected: false})
+        }
+    },
+    render: function() {
+        var isSelected = this.state.isSelected;
+        if (this.props.id=="s3" && isSelected) {
+          toReturn = <ul>
+                <li>Lager: {storage_filter}</li>
+                <li>Kontor: {office_filter}</li>
+                <li>Övrigt: {other_space_filter}</li>
+              </ul>;
+        } else if (this.props.id=="s4" && isSelected) {
+          toReturn = <ul>
+                <li>Administratör: {admin_filter}</li>
+                <li>Övrigt: {other_service_filter}</li>
+              </ul>;
+        }
+        else {
+          toReturn = <ul></ul>;
+        }
+        return (
+            <li id={this.props.id}className="filter_title" onClick={this.handleClick}>{this.props.content}
+            {toReturn}
+            </li>
+        );
+        this.forceUpdate();
+    }
+});
+
 
 var FilterList = React.createClass({
   render: function() {
@@ -129,31 +172,22 @@ var FilterList = React.createClass({
     return (
       <div className="filterList">
         <h2>Kategorier</h2>
-        <ul className="offerfilters">
-          <li className="button filter_title"><a href="#">Alla erbjudanden: {all}</a>
-          </li>
-          <li className="button filter_title"><a href="#space-filters">Utrymme: {space_filter}</a></li>
-            
-            
-          <li className="button filter_title"><a href="#service-filters">Tjänster: {service_filter}</a></li>
+          <ul className="offerfilters">
+          <ListItem id="e3" content={"Alla efterfrågningar:"+ all} />
           
-          <li className="button filter_title"><a href="#">Övrigt: {other_filter}</a></li>
+          <ListItem id="s3" content={"Utrymme:"+ space_filter} />
+            
+            
+          <ListItem id="s4" content={"Tjänster:"+ service_filter} />
+          
+          <ListItem id="e4" content={"Övrigt:"+ other_filter} />
         </ul>
-        <ul id="space-filters">
-              <li>Lager: {storage_filter}</li>
-              <li>Kontor: {office_filter}</li>
-              <li>Övrigt: {other_space_filter}</li>
-            </ul>
-            <ul id="service-filters">
-            <li>Administratör: {admin_filter}</li>
-            <li>Övrigt: {other_service_filter}</li>
-          </ul>
         <h2>Geografiskt</h2>
-        <ul>
+        <div>
           <li>Umeå: {umea_filter}</li>
           <li>Vännäs: {vannas_filter}</li>
           <li>Lycksele: {lycksele_filter}</li>
-        </ul>
+        </div>
       </div>
     );
   }
@@ -163,39 +197,3 @@ React.render(
   <FilterBox url="offers/filter/" pollInterval={10000} />,
   document.getElementById('filtersidebar')
 );
-
-$('ul.offerfilters').each(function(){
-    // For each set of tabs, we want to keep track of
-    // which tab is active and it's associated content
-    var $active, $content, $links = $(this).find('a');
-
-    // If the location.hash matches one of the links, use that as the active tab.
-    // If no match is found, use the first link as the initial active tab.
-    $active = $($links.filter('[href="'+location.hash+'"]')[0] || $links[0]);
-    $active.addClass('active');
-
-    $content = $($active[0].hash);
-
-    // Hide the remaining content
-    $links.not($active).each(function () {
-      $(this.hash).hide();
-    });
-
-    // Bind the click event handler
-    $(this).on('click', 'a', function(e){
-      // Make the old tab inactive.
-      $active.parent().removeClass('active');
-      $content.hide();
-
-      // Update the variables with the new link and content
-      $active = $(this);
-      $content = $(this.hash);
-
-      // Make the tab active.
-      $active.parent().addClass('active');
-      $content.show();
-
-      // Prevent the anchor's default click action
-      e.preventDefault();
-    });
-  });
