@@ -39,7 +39,7 @@ class ListNeed(generics.ListCreateAPIView):
     """
     serializer_class = NeedSerializer
     paginate_by = 20
-    queryset = Need.objects.all()
+    queryset = Need.objects.all().order_by('-created_at')
     """model = Need
     success_url = 'listview'
     serializer_class = NeedSerializer
