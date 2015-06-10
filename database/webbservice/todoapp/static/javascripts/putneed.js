@@ -103,7 +103,7 @@ var NeedForm = React.createClass({
         <div className="row">
           <div className="large-9 columns">
             <label>Beskrivning
-              <textarea ref="description" placeholder="Erbjudandets beskrivning här..."></textarea>
+              <textarea ref="description" placeholder="Testar..."></textarea>
             </label>
           </div>
         </div>
@@ -115,7 +115,7 @@ var NeedForm = React.createClass({
           </div>
         </div>
         <div className="small-2 columns">
-          <input type="submit" value="Publicera" className="button postfix" />
+          <input type="submit" value="Spara" className="button postfix" />
         </div>
       </form>
     );
@@ -123,6 +123,6 @@ var NeedForm = React.createClass({
 });
 
 React.render(
-  <NeedForm url="needs/"/>,
+  <NeedForm url={""+needURL}/>,
   document.getElementById('myModal')
 );

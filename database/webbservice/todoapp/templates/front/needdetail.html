@@ -56,13 +56,13 @@
     <img src="{{ STATIC_URL }}{{object.imgfile}}" />
   </div>
   <div class="large-6 columns" id="detailholder">
-    <input type="hidden" id="object_id" value="{object.id}" />
+    <input type="hidden" id="object_id" value={{object.id}} />
     <div class="row">
       <div id="edit_btn">
-            <a href="#" class="button" data-reveal-id:"myModal">Redigera</a>
-            <div id="myModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
-              <h2 id="modalTitle">Spara</h2>
-            </div>
+        <a href="#" class="button right" data-reveal-id="myModal">Redigera</a>
+
+        <div id="myModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+        </div>
         
       </div>
         <h3 className="offerTitle" id="left_title">
@@ -125,5 +125,5 @@
     </div>
   </div>      
 </div>
-<script type="text/jsx" src="{{ STATIC_URL }}javascripts/putneed.js"></script>
+<script type="text/jsx" src="{% static 'javascripts/putneed.js' %}"></script>
 {% endblock %}
