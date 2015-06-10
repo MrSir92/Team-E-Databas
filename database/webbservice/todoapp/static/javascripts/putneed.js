@@ -1,6 +1,11 @@
 var user = 17;
 var needURL = "needs/"+$("#object_id");
-var leftTitle = document.getElementById.left_title;
+var ntitle = document.getElementById('left_title').innerHTML.trim();
+var nlocation = document.getElementById('needLocation').innerHTML.trim();
+var ncategory = document.getElementById('left_title').innerHTML.trim();
+var nsubcategory = document.getElementById('left_title').innerHTML.trim();
+var ndescription = document.getElementById('needDescription').innerHTML.trim();
+var nimgfile = document.getElementById('left_title').innerHTML.trim();
 var NeedForm = React.createClass({
   handleSubmit: function(e) {
     e.preventDefault();
@@ -48,14 +53,84 @@ var NeedForm = React.createClass({
   
     return;
   },
+
   render: function() {
+    if (nlocation=="Umeå") {
+          toReturn = <select id="location" ref="location" defaultValue="umea">
+                <option value="umea">Umeå</option>
+                <option value="lycksele">Lycksele</option>
+                <option value="vannas">Vännäs</option>
+              </select>;
+        } else if (nlocation=="Lycksele") {
+          toReturn = <select id="location" ref="location" defaultValue="lycksele">
+                <option value="umea">Umeå</option>
+                <option value="lycksele">Lycksele</option>
+                <option value="vannas">Vännäs</option>
+              </select>;
+        } else if (nlocation=="Vännäs") {
+          toReturn = <select id="location" ref="location" defaultValue="vannas">
+                <option value="umea">Umeå</option>
+                <option value="lycksele">Lycksele</option>
+                <option value="vannas">Vännäs</option>
+              </select>;
+        }
+          else {
+            toReturn = <select></select>
+          }
+
+    if (ncategory=="Umeå") {
+          categoryReturn = <select id="location" ref="location" defaultValue="umea">
+                <option value="umea">Umeå</option>
+                <option value="lycksele">Lycksele</option>
+                <option value="vannas">Vännäs</option>
+              </select>;
+        } else if (nlocation=="Lycksele") {
+          categoryReturn = <select id="location" ref="location" defaultValue="lycksele">
+                <option value="umea">Umeå</option>
+                <option value="lycksele">Lycksele</option>
+                <option value="vannas">Vännäs</option>
+              </select>;
+        } else if (nlocation=="Vännäs") {
+          categoryReturn = <select id="location" ref="location" defaultValue="vannas">
+                <option value="umea">Umeå</option>
+                <option value="lycksele">Lycksele</option>
+                <option value="vannas">Vännäs</option>
+              </select>;
+        }
+          else {
+            categoryReturn = <select></select>
+          }
+
+    if (nsubcategory=="Umeå") {
+          subcategoryReturn = <select id="location" ref="location" defaultValue="umea">
+                <option value="umea">Umeå</option>
+                <option value="lycksele">Lycksele</option>
+                <option value="vannas">Vännäs</option>
+              </select>;
+        } else if (nlocation=="Lycksele") {
+          subcategoryReturn = <select id="location" ref="location" defaultValue="lycksele">
+                <option value="umea">Umeå</option>
+                <option value="lycksele">Lycksele</option>
+                <option value="vannas">Vännäs</option>
+              </select>;
+        } else if (nlocation=="Vännäs") {
+          subcategoryReturn = <select id="location" ref="location" defaultValue="vannas">
+                <option value="umea">Umeå</option>
+                <option value="lycksele">Lycksele</option>
+                <option value="vannas">Vännäs</option>
+              </select>;
+        }
+          else {
+            subcategoryReturn = <select></select>
+          }
     return (
       <form onSubmit={this.handleSubmit}>
+
         <a className="close-reveal-modal" aria-label="Stäng">&#215;</a>
         <div className="row">
           <div className="large-9 columns">
             <label>Titel
-              <input type="text" ref="title" value={leftTitle}/>
+              <input type="text" ref="title" defaultValue={ntitle}/>
             </label>
           </div>
         </div>
@@ -92,18 +167,15 @@ var NeedForm = React.createClass({
         <div className="row">
           <div className="large-9 columns">
             <label>Geografiskt
-              <select id="location" ref="location">
-                <option value="umea">Umeå</option>
-                <option value="lycksele">Lycksele</option>
-                <option value="vannas">Vännäs</option>
-              </select>
+              
+                {toReturn}
             </label>
           </div>
         </div>
         <div className="row">
           <div className="large-9 columns">
             <label>Beskrivning
-              <textarea ref="description" placeholder="Testar..."></textarea>
+              <textarea ref="description" defaultValue={ndescription}></textarea>
             </label>
           </div>
         </div>

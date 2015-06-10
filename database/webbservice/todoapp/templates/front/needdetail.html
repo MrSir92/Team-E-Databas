@@ -68,7 +68,7 @@
         <h3 className="offerTitle" id="left_title">
           {{object.title}}
         </h3>
-        <h4 className="offerLocation">
+        <h4 className="offerLocation" id="needLocation">
           {% if object.location == "umea"  %}
     Umeå
 {% elif object.location == "lycksele" %}
@@ -81,7 +81,7 @@
       <div class="row">
         <div class="large-12 columns" id="textholder">
           <p class="offerDescription">
-            <pre> <div class="offerDescription"><p>{{object.description}}</p></div> </pre>
+            <pre> <div class="offerDescription"><p id= "needDescription">{{object.description}}</p></div> </pre>
           </p>
         </div>
       </div>
