@@ -1,4 +1,6 @@
 var user = 17;
+var needURL = "needs/"+$("#object_id");
+var leftTitle = document.getElementById.left_title;
 var NeedForm = React.createClass({
   handleSubmit: function(e) {
     e.preventDefault();
@@ -53,7 +55,7 @@ var NeedForm = React.createClass({
         <div className="row">
           <div className="large-9 columns">
             <label>Titel
-              <input type="text" ref="title" value={getElementById.left_title}/>
+              <input type="text" ref="title" value={leftTitle}/>
             </label>
           </div>
         </div>
@@ -121,6 +123,6 @@ var NeedForm = React.createClass({
 });
 
 React.render(
-  <NeedForm url="needs/"  />,
+  <NeedForm url="needs/"/>,
   document.getElementById('myModal')
 );
