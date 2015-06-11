@@ -1,11 +1,11 @@
 var user = 17;
-var needURL = "needs/"+$("#object_id");
+var needURL = "" //"needs/"+React.findDOMNode(object_id).value.trim();
 var ntitle = document.getElementById('left_title').innerHTML.trim();
 var nlocation = document.getElementById('needLocation').innerHTML.trim();
-var ncategory = document.getElementById('left_title').innerHTML.trim();
-var nsubcategory = document.getElementById('left_title').innerHTML.trim();
+var ncategory = React.findDOMNode(object_category).value.trim();
+var nsubcategory = React.findDOMNode(object_subcategory).value.trim();
 var ndescription = document.getElementById('needDescription').innerHTML.trim();
-var nimgfile = document.getElementById('left_title').innerHTML.trim();
+var nimgfile = React.findDOMNode(object_imgfile).value.trim();
 var NeedForm = React.createClass({
   handleSubmit: function(e) {
     e.preventDefault();
@@ -78,47 +78,83 @@ var NeedForm = React.createClass({
             toReturn = <select></select>
           }
 
-    if (ncategory=="Umeå") {
-          categoryReturn = <select id="location" ref="location" defaultValue="umea">
-                <option value="umea">Umeå</option>
-                <option value="lycksele">Lycksele</option>
-                <option value="vannas">Vännäs</option>
+    if (ncategory=="space") {
+          categoryReturn = <select id="category" ref="category" defaultValue="space">
+                <option value="service">Tjänster</option>
+                <option value="space">Utrymme</option>
+                <option value="other">Övrigt</option>
               </select>;
-        } else if (nlocation=="Lycksele") {
-          categoryReturn = <select id="location" ref="location" defaultValue="lycksele">
-                <option value="umea">Umeå</option>
-                <option value="lycksele">Lycksele</option>
-                <option value="vannas">Vännäs</option>
+        } else if (ncategory=="service") {
+          categoryReturn = <select id="category" ref="category" defaultValue="service">
+                <option value="service">Tjänster</option>
+                <option value="space">Utrymme</option>
+                <option value="other">Övrigt</option>
               </select>;
-        } else if (nlocation=="Vännäs") {
-          categoryReturn = <select id="location" ref="location" defaultValue="vannas">
-                <option value="umea">Umeå</option>
-                <option value="lycksele">Lycksele</option>
-                <option value="vannas">Vännäs</option>
+        } else if (ncategory=="other") {
+          categoryReturn = <select id="category" ref="category" defaultValue="other">
+                <option value="service">Tjänster</option>
+                <option value="space">Utrymme</option>
+                <option value="other">Övrigt</option>
               </select>;
         }
           else {
             categoryReturn = <select></select>
           }
 
-    if (nsubcategory=="Umeå") {
-          subcategoryReturn = <select id="location" ref="location" defaultValue="umea">
-                <option value="umea">Umeå</option>
-                <option value="lycksele">Lycksele</option>
-                <option value="vannas">Vännäs</option>
-              </select>;
-        } else if (nlocation=="Lycksele") {
-          subcategoryReturn = <select id="location" ref="location" defaultValue="lycksele">
-                <option value="umea">Umeå</option>
-                <option value="lycksele">Lycksele</option>
-                <option value="vannas">Vännäs</option>
-              </select>;
-        } else if (nlocation=="Vännäs") {
-          subcategoryReturn = <select id="location" ref="location" defaultValue="vannas">
-                <option value="umea">Umeå</option>
-                <option value="lycksele">Lycksele</option>
-                <option value="vannas">Vännäs</option>
-              </select>;
+    if (nsubcategory=="storage") {
+          subcategoryReturn = <select id="subcategory" ref="subcategory" defaultValue="storage">
+                <option value="storage">Lager</option>
+                <option value="office">Kontor</option>
+                <option value="admin">Administration</option>
+                <option value="other_service">Övrigt_tjänst</option>
+                <option value="other_space">Övrigt_utrymme</option>
+                <option value="other_other">Övrigt_övrigt</option>
+                </select>;
+        } else if (nsubcategory=="office") {
+          subcategoryReturn = <select id="subcategory" ref="subcategory" defaultValue="office">
+                <option value="storage">Lager</option>
+                <option value="office">Kontor</option>
+                <option value="admin">Administration</option>
+                <option value="other_service">Övrigt_tjänst</option>
+                <option value="other_space">Övrigt_utrymme</option>
+                <option value="other_other">Övrigt_övrigt</option>
+                </select>;
+        } else if (nsubcategory=="admin") {
+          subcategoryReturn = <select id="subcategory" ref="subcategory" defaultValue="admin">
+                <option value="storage">Lager</option>
+                <option value="office">Kontor</option>
+                <option value="admin">Administration</option>
+                <option value="other_service">Övrigt_tjänst</option>
+                <option value="other_space">Övrigt_utrymme</option>
+                <option value="other_other">Övrigt_övrigt</option>
+                </select>;
+        } else if (nsubcategory=="other_service") {
+          subcategoryReturn = <select id="subcategory" ref="subcategory" defaultValue="other_service">
+                <option value="storage">Lager</option>
+                <option value="office">Kontor</option>
+                <option value="admin">Administration</option>
+                <option value="other_service">Övrigt_tjänst</option>
+                <option value="other_space">Övrigt_utrymme</option>
+                <option value="other_other">Övrigt_övrigt</option>
+                </select>;
+        } else if (nsubcategory=="other_space") {
+          subcategoryReturn = <select id="subcategory" ref="subcategory" defaultValue="other_space">
+                <option value="storage">Lager</option>
+                <option value="office">Kontor</option>
+                <option value="admin">Administration</option>
+                <option value="other_service">Övrigt_tjänst</option>
+                <option value="other_space">Övrigt_utrymme</option>
+                <option value="other_other">Övrigt_övrigt</option>
+                </select>;
+        } else if (nsubcategory=="other_other") {
+          subcategoryReturn = <select id="subcategory" ref="subcategory" defaultValue="other_other">
+                <option value="storage">Lager</option>
+                <option value="office">Kontor</option>
+                <option value="admin">Administration</option>
+                <option value="other_service">Övrigt_tjänst</option>
+                <option value="other_space">Övrigt_utrymme</option>
+                <option value="other_other">Övrigt_övrigt</option>
+                </select>;
         }
           else {
             subcategoryReturn = <select></select>
@@ -142,32 +178,20 @@ var NeedForm = React.createClass({
         <div className="row">
           <div className="large-9 columns">
             <label>Kategori
-              <select id="category" ref="category">
-                <option value="service">Tjänster</option>
-                <option value="space">Utrymme</option>
-                <option value="other">Övrigt</option>
-              </select>
+              {categoryReturn}
             </label>
           </div>
         </div>
         <div className="row">
           <div className="large-9 columns">
           <label>Subkategori
-              <select id="subcategory" ref="subcategory">
-                <option value="storage">Lager</option>
-                <option value="office">Kontor</option>
-                <option value="admin">Administration</option>
-                <option value="other_service">Övrigt_tjänst</option>
-                <option value="other_space">Övrigt_utrymme</option>
-                <option value="other_other">Övrigt_övrigt</option>
-                </select>
+                  {subcategoryReturn}
                 </label>
                 </div>
         </div>
         <div className="row">
           <div className="large-9 columns">
             <label>Geografiskt
-              
                 {toReturn}
             </label>
           </div>
@@ -182,7 +206,7 @@ var NeedForm = React.createClass({
         <div className="row">
           <div className="large-9 columns">
             <label>Ladda upp en bild.
-              <input type="file" ref="imgfile" />
+              <input type="file" ref="imgfile" defaultValue={nimgfile}/>
             </label>
           </div>
         </div>

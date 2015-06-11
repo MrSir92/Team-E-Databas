@@ -30,6 +30,8 @@
   <div class="row line_row">
     <div class="small-6 small-centered columns">
       <h4 className="offerCategory">
+        <input type="hidden" id="object_category" value={{object.category}} />
+        <input type="hidden" id="object_subcategory" value={{object.subcategory}} />
       {% if object.category == "space"  %}
     Utrymme
 {% elif object.category == "service" %}
@@ -53,6 +55,7 @@
     <hr />
   </div>
   <div class="large-6 columns" id="imgholder">
+    <input type="hidden" id="object_imgfile" value={{ STATIC_URL }}{{object.imgfile}} />
     <img src="{{ STATIC_URL }}{{object.imgfile}}" />
   </div>
   <div class="large-6 columns" id="detailholder">
