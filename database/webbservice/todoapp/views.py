@@ -3,10 +3,11 @@ from todoapp.models import Need, Offer, User
 from todoapp.serializers import NeedSerializer, UserSerializer, OfferSerializer, UserDetailSerializer, UserOfferListSerializer, UserNeedListSerializer, OfferDetailSerializer, OfferCategorySerializer, NeedDetailSerializer, NeedCategorySerializer, NeedFilterSerializer, OfferFilterSerializer
 from rest_framework.views import APIView
 from rest_framework import generics, permissions, pagination
-from django.views.generic import ListView, CreateView, DetailView
+from django.views.generic import ListView, CreateView, DetailView, UpdateView
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 from django.db.models import Count
+from rest_framework import mixins
 
 # Create your views here.
 class Index(ListView):
@@ -76,6 +77,15 @@ class NeedDetail(DetailView):
         task= get_object_or_404(Need,id=self.kwargs['pk'])
         return task
     """
+
+class NeedUpdate(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = NeedSerializer
+    queryset = Need.objects.all()
+
+class OfferUpdate(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = NeedSerializer
+    queryset = Need.objects.all()
+        
 
 class ListOffer(generics.ListCreateAPIView):
     """
