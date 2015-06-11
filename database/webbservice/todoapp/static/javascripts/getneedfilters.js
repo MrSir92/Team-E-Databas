@@ -82,9 +82,11 @@ var ListItem = React.createClass({
           toReturn = <ul></ul>;
         }
         return (
-            <li id={this.props.id}className="filter_title" onClick={this.handleClick}>{this.props.content}
-            {toReturn}
-            </li>
+            <div>
+              <li id={this.props.id}className="filter_title" onClick={this.handleClick}>{this.props.content}
+              </li>
+              {toReturn}
+            </div>
         );
     }
 });
