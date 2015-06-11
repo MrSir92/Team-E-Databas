@@ -1,12 +1,12 @@
 var user = 17;
-var offerURL = "update" //"needs/"+React.findDOMNode(object_id).value.trim();
-var otitle = document.getElementById('left_title').innerHTML.trim();
-var olocation = document.getElementById('offerLocation').innerHTML.trim();
-var ocategory = React.findDOMNode(object_category).value.trim();
-var osubcategory = React.findDOMNode(object_subcategory).value.trim();
-var odescription = document.getElementById('offerDescription').innerHTML.trim();
-var oimgfile = React.findDOMNode(object_imgfile).value.trim();
-var OfferForm = React.createClass({
+var needURL = "update" //"needs/"+React.findDOMNode(object_id).value.trim();
+var ntitle = document.getElementById('left_title').innerHTML.trim();
+var nlocation = document.getElementById('offerLocation').innerHTML.trim();
+var ncategory = React.findDOMNode(object_category).value.trim();
+var nsubcategory = React.findDOMNode(object_subcategory).value.trim();
+var ndescription = document.getElementById('offerDescription').innerHTML.trim();
+var nimgfile = React.findDOMNode(object_imgfile).value.trim();
+var NeedForm = React.createClass({
   handleSubmit: function(e) {
     e.preventDefault();
     var title = React.findDOMNode(this.refs.title).value.trim();
@@ -50,19 +50,19 @@ var OfferForm = React.createClass({
   },
 
   render: function() {
-    if (olocation=="Umeå") {
+    if (nlocation=="Umeå") {
           toReturn = <select id="location" ref="location" defaultValue="umea">
                 <option value="umea">Umeå</option>
                 <option value="lycksele">Lycksele</option>
                 <option value="vannas">Vännäs</option>
               </select>;
-        } else if (olocation=="Lycksele") {
+        } else if (nlocation=="Lycksele") {
           toReturn = <select id="location" ref="location" defaultValue="lycksele">
                 <option value="umea">Umeå</option>
                 <option value="lycksele">Lycksele</option>
                 <option value="vannas">Vännäs</option>
               </select>;
-        } else if (olocation=="Vännäs") {
+        } else if (nlocation=="Vännäs") {
           toReturn = <select id="location" ref="location" defaultValue="vannas">
                 <option value="umea">Umeå</option>
                 <option value="lycksele">Lycksele</option>
@@ -73,7 +73,7 @@ var OfferForm = React.createClass({
             toReturn = <select></select>
           }
 
-    if (ocategory=="space") {
+    if (ncategory=="space") {
           categoryReturn = <select id="category" ref="category" defaultValue="space">
                 <option value="service">Tjänster</option>
                 <option value="space">Utrymme</option>
@@ -96,7 +96,7 @@ var OfferForm = React.createClass({
             categoryReturn = <select></select>
           }
 
-    if (osubcategory=="storage") {
+    if (nsubcategory=="storage") {
           subcategoryReturn = <select id="subcategory" ref="subcategory" defaultValue="storage">
                 <option value="storage">Lager</option>
                 <option value="office">Kontor</option>
@@ -161,7 +161,7 @@ var OfferForm = React.createClass({
         <div className="row">
           <div className="large-9 columns">
             <label>Titel
-              <input type="text" ref="title" defaultValue={otitle}/>
+              <input type="text" ref="title" defaultValue={ntitle}/>
             </label>
           </div>
         </div>
@@ -194,14 +194,14 @@ var OfferForm = React.createClass({
         <div className="row">
           <div className="large-9 columns">
             <label>Beskrivning
-              <textarea ref="description" defaultValue={odescription}></textarea>
+              <textarea ref="description" defaultValue={ndescription}></textarea>
             </label>
           </div>
         </div>
         <div className="row">
           <div className="large-9 columns">
             <label>Ladda upp en bild.
-              <input type="file" ref="imgfile" defaultValue={oimgfile}/>
+              <input type="file" ref="imgfile" defaultValue={nimgfile}/>
             </label>
           </div>
         </div>
@@ -214,6 +214,6 @@ var OfferForm = React.createClass({
 });
 
 React.render(
-  <OfferForm url={""+offerURL}/>,
+  <NeedForm url={""+needURL}/>,
   document.getElementById('myModal')
 );

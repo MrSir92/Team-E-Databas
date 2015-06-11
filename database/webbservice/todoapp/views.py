@@ -84,7 +84,7 @@ class NeedUpdate(generics.RetrieveUpdateDestroyAPIView):
 
 class OfferUpdate(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = NeedSerializer
-    queryset = Need.objects.all()
+    queryset = Offer.objects.all()
         
 
 class ListOffer(generics.ListCreateAPIView):
