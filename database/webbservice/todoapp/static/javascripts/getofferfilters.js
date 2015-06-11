@@ -184,9 +184,11 @@ var FilterList = React.createClass({
         </ul>
         <h2>Geografiskt</h2>
         <div>
-          <li>Umeå: {umea_filter}</li>
-          <li>Vännäs: {vannas_filter}</li>
-          <li>Lycksele: {lycksele_filter}</li>
+          <ul>
+          <li className="filter_title">Umeå: {umea_filter}</li>
+          <li className="filter_title">Vännäs: {vannas_filter}</li>
+          <li className="filter_title">Lycksele: {lycksele_filter}</li>
+          </ul>
         </div>
       </div>
     );
