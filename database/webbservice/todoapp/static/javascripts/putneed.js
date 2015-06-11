@@ -1,5 +1,5 @@
 var user = 17;
-var needURL = "" //"needs/"+React.findDOMNode(object_id).value.trim();
+var needURL = "update" //"needs/"+React.findDOMNode(object_id).value.trim();
 var ntitle = document.getElementById('left_title').innerHTML.trim();
 var nlocation = document.getElementById('needLocation').innerHTML.trim();
 var ncategory = React.findDOMNode(object_category).value.trim();
@@ -37,12 +37,7 @@ var NeedForm = React.createClass({
       type: 'PUT',
       data: toSend,
       success: function(data) {
-        React.findDOMNode(this.refs.title).value = '';
-        React.findDOMNode(this.refs.category).value = 'service';
-        React.findDOMNode(this.refs.subcategory).value = 'storage';
-        React.findDOMNode(this.refs.location).value = 'umea';
-        React.findDOMNode(this.refs.description).value = '';
-        React.findDOMNode(this.refs.imgfile).value = '';
+        //close
       }.bind(this),
       error: function(xhr, status, err) {
         console.error(this.props.url, status, err.toString());
