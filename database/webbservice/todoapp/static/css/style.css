@@ -47,6 +47,35 @@ pre {
   display: block;
 }
 
+#postBtn {
+  color: #000000;
+  background-color: #fbefaf;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 5px;
+  border-color: #ffffff;
+}
+
+#postForm {
+  color: #FFFFFF;
+  background-color: #f7c027;
+  margin-top: -25px;
+  padding-top: 15px;
+  margin-bottom: 10px;
+}
+
+.button.formtab {
+  color: #f0b020;
+  background-color: #fbefaf;
+  border-width: 1px;
+  border-color: #f7c027;
+}
+
+.button.formtab.active {
+  color: #FFFFFF;
+  background-color: #f7c027;
+}
+
 .tabs .tab-title a {
   color: #f0b020;
   background-color: #fbefaf;

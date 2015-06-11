@@ -1,7 +1,7 @@
 var user = 17;
 var OfferForm = React.createClass({
   getInitialState: function() {
-    return {offer: true};
+    return {offer: true, needChange: "", offerChange: ""};
   },
   handleClick: function() {
         if(this.state.offer == false) {
@@ -11,6 +11,12 @@ var OfferForm = React.createClass({
         } else {
           this.setState({ offer: false})
         }
+    },
+    handleOfferChange: function() {
+      this.setState({offerChange: event.target.value});
+    },
+    handleNeedChange: function() {
+      this.setState({needChange: event.target.value});
     },
   handleSubmit: function(e) {
     e.preventDefault();
@@ -82,15 +88,49 @@ var OfferForm = React.createClass({
   render: function() {
     var tabs;
     var theForm;
+    var subToReturn;
+    var subToReturn2;
+    if (this.state.offerChange == "space") {
+                var subToReturn = <select id="subcategory" ref="subcategory">
+                <option value="storage">Lager</option>
+                <option value="office">Kontor</option>
+                <option value="other_space">Övrigt</option>
+                </select>;
+              } else if (this.state.offerChange == "service") {
+                var subToReturn = <select id="subcategory" ref="subcategory">
+                <option value="admin">Administration</option>
+                <option value="other_service">Övrigt</option>
+                </select>;
+              } else {
+                var subToReturn = <select id="subcategory" ref="subcategory">
+                <option value="other_other">Övrigt</option>
+                </select>;
+              }
+    /*if (this.state.needChange == "space") {
+                var subToReturn2 = <select id="subcategory" ref="subcategory">
+                <option value="storage">Lager</option>
+                <option value="office">Kontor</option>
+                <option value="other_space">Övrigt_utrymme</option>
+                </select>;
+              } else if (this.state.needChange == "service") {
+                var subToReturn2 = <select id="subcategory" ref="subcategory">
+                <option value="admin">Administration</option>
+                <option value="other_service">Övrigt_tjänst</option>
+                </select>;
+              } else {
+                var subToReturn2 = <select id="subcategory" ref="subcategory">
+                <option value="other_other">Övrigt_övrigt</option>
+                </select>;
+              }*/
     if(this.state.offer == false) {
-          tabs = <div><div className="large-6 columns active">
+          tabs = <div><div className="button formtab active">
             <p>Posta erbjudande.</p>
           </div>
-          <div className="large-6 columns">
+          <div className="button formtab">
             <p onClick={this.handleClick}>Posta behov.</p>
           </div>
           </div>;
-          theForm = <div><div className="row">
+          theForm = <div id="postForm"><div className="row">
           <div className="large-9 columns">
             <label>Titel
               <input type="text" ref="title" placeholder="Erbjudandets titel här..."/>
@@ -105,10 +145,10 @@ var OfferForm = React.createClass({
         <div className="row">
           <div className="large-9 columns">
             <label>Kategori
-              <select id="category" ref="category">
+              <select id="category" ref="category" onChange={this.handleOfferChange}>
                 <option value="service">Tjänster</option>
                 <option value="space">Utrymme</option>
-                <option value="other">Övrigt</option>
+                <option value="other" selected="selected">Övrigt</option>
               </select>
             </label>
           </div>
@@ -116,14 +156,7 @@ var OfferForm = React.createClass({
         <div className="row">
           <div className="large-9 columns">
           <label>Subkategori
-              <select id="subcategory" ref="subcategory">
-                <option value="storage">Lager</option>
-                <option value="office">Kontor</option>
-                <option value="admin">Administration</option>
-                <option value="other_service">Övrigt_tjänst</option>
-                <option value="other_space">Övrigt_utrymme</option>
-                <option value="other_other">Övrigt_övrigt</option>
-                </select>
+              {subToReturn}
                 </label>
                 </div>
         </div>
@@ -152,19 +185,21 @@ var OfferForm = React.createClass({
             </label>
           </div>
         </div>
+        <div className="row">
         <div className="small-2 columns">
-          <input type="submit" value="Publicera" className="button postfix" />
+          <input type="submit" id="postBtn" value="Publicera" className="button postfix" />
+        </div>
         </div>
         </div>;
         } else {
-          tabs = <div><div className="large-6 columns">
+          tabs = <div><div className="button formtab">
             <p onClick={this.handleClick}>Posta erbjudande.</p>
           </div>
-          <div className="large-6 columns active">
+          <div className="button formtab active">
             <p>Posta behov.</p>
           </div>
           </div>;
-          theForm = <div><div className="row">
+          theForm = <div id="postForm"><div className="row">
           <div className="large-9 columns">
             <label>Titel
               <input type="text" ref="title" placeholder="Behovets titel här..."/>
@@ -179,10 +214,10 @@ var OfferForm = React.createClass({
         <div className="row">
           <div className="large-9 columns">
             <label>Kategori
-              <select id="category" ref="category">
+              <select id="category" ref="category" onChange={this.handleOfferChange}>
                 <option value="service">Tjänster</option>
                 <option value="space">Utrymme</option>
-                <option value="other">Övrigt</option>
+                <option value="other" selected="selected">Övrigt</option>
               </select>
             </label>
           </div>
@@ -190,14 +225,8 @@ var OfferForm = React.createClass({
         <div className="row">
           <div className="large-9 columns">
           <label>Subkategori
-              <select id="subcategory" ref="subcategory">
-                <option value="storage">Lager</option>
-                <option value="office">Kontor</option>
-                <option value="admin">Administration</option>
-                <option value="other_service">Övrigt_tjänst</option>
-                <option value="other_space">Övrigt_utrymme</option>
-                <option value="other_other">Övrigt_övrigt</option>
-                </select>
+              {subToReturn}
+                
                 </label>
                 </div>
         </div>
@@ -226,8 +255,10 @@ var OfferForm = React.createClass({
             </label>
           </div>
         </div>
+        <div className="row">
         <div className="small-2 columns">
-          <input type="submit" value="Publicera" className="button postfix" />
+          <input id="postBtn" type="submit" value="Publicera" className="button postfix" />
+        </div>
         </div>
         </div>;
         }
