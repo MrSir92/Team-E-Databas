@@ -86,7 +86,7 @@ var NeedBox = React.createClass({
   render: function() {
     return (
       <div className="needBox">
-        <h1>Efterfrågas</h1>
+        <h1>Behöver</h1>
         <NeedList data={this.state.data} />
       </div>
     );

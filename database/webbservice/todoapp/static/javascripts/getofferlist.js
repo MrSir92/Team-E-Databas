@@ -86,7 +86,7 @@ var OfferBox = React.createClass({
   render: function() {
     return (
       <div className="offerBox">
-        <h1>Erbjudanden</h1>
+        <h1>Har över</h1>
         <OfferList data={this.state.data} />
       </div>
     );

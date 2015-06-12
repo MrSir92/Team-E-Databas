@@ -7,6 +7,12 @@ var nsubcategory = React.findDOMNode(object_subcategory).value.trim();
 var ndescription = document.getElementById('offerDescription').innerHTML.trim();
 var nimgfile = React.findDOMNode(object_imgfile).value.trim();
 var NeedForm = React.createClass({
+  getInitialState: function() {
+    return {change: "", started: true};
+  },
+  handleChange: function() {
+      this.setState({change: event.target.value, started: false});
+    },
   handleSubmit: function(e) {
     e.preventDefault();
     var title = React.findDOMNode(this.refs.title).value.trim();
@@ -50,20 +56,22 @@ var NeedForm = React.createClass({
   },
 
   render: function() {
+    if (this.state.started) {
+      console.log("started");
     if (nlocation=="Umeå") {
-          toReturn = <select id="location" ref="location" defaultValue="umea">
+          toReturn = <select id="location" ref="location" defaultValue="umea" onChange={this.handleChange}>
                 <option value="umea">Umeå</option>
                 <option value="lycksele">Lycksele</option>
                 <option value="vannas">Vännäs</option>
               </select>;
         } else if (nlocation=="Lycksele") {
-          toReturn = <select id="location" ref="location" defaultValue="lycksele">
+          toReturn = <select id="location" ref="location" defaultValue="lycksele" onChange={this.handleChange}>
                 <option value="umea">Umeå</option>
                 <option value="lycksele">Lycksele</option>
                 <option value="vannas">Vännäs</option>
               </select>;
         } else if (nlocation=="Vännäs") {
-          toReturn = <select id="location" ref="location" defaultValue="vannas">
+          toReturn = <select id="location" ref="location" defaultValue="vannas" onChange={this.handleChange}>
                 <option value="umea">Umeå</option>
                 <option value="lycksele">Lycksele</option>
                 <option value="vannas">Vännäs</option>
@@ -72,88 +80,84 @@ var NeedForm = React.createClass({
           else {
             toReturn = <select></select>
           }
-
+        
     if (ncategory=="space") {
-          categoryReturn = <select id="category" ref="category" defaultValue="space">
+          categoryReturn = <select id="category" ref="category" defaultValue="space" onChange={this.handleChange}>
                 <option value="service">Tjänster</option>
                 <option value="space">Utrymme</option>
                 <option value="other">Övrigt</option>
               </select>;
         } else if (ncategory=="service") {
-          categoryReturn = <select id="category" ref="category" defaultValue="service">
+          categoryReturn = <select id="category" ref="category" defaultValue="service" onChange={this.handleChange}>
                 <option value="service">Tjänster</option>
                 <option value="space">Utrymme</option>
                 <option value="other">Övrigt</option>
               </select>;
         } else if (ncategory=="other") {
-          categoryReturn = <select id="category" ref="category" defaultValue="other">
+          categoryReturn = <select id="category" ref="category" defaultValue="other" onChange={this.handleChange}>
                 <option value="service">Tjänster</option>
                 <option value="space">Utrymme</option>
                 <option value="other">Övrigt</option>
               </select>;
         }
           else {
-            categoryReturn = <select></select>
+            categoryReturn = <select onChange={this.handleChange}></select>
           }
 
     if (nsubcategory=="storage") {
           subcategoryReturn = <select id="subcategory" ref="subcategory" defaultValue="storage">
                 <option value="storage">Lager</option>
                 <option value="office">Kontor</option>
-                <option value="admin">Administration</option>
-                <option value="other_service">Övrigt_tjänst</option>
-                <option value="other_space">Övrigt_utrymme</option>
-                <option value="other_other">Övrigt_övrigt</option>
+                <option value="other_space">Övrigt</option>
                 </select>;
         } else if (nsubcategory=="office") {
           subcategoryReturn = <select id="subcategory" ref="subcategory" defaultValue="office">
                 <option value="storage">Lager</option>
                 <option value="office">Kontor</option>
-                <option value="admin">Administration</option>
-                <option value="other_service">Övrigt_tjänst</option>
-                <option value="other_space">Övrigt_utrymme</option>
-                <option value="other_other">Övrigt_övrigt</option>
+                <option value="other_space">Övrigt</option>
                 </select>;
         } else if (nsubcategory=="admin") {
           subcategoryReturn = <select id="subcategory" ref="subcategory" defaultValue="admin">
-                <option value="storage">Lager</option>
-                <option value="office">Kontor</option>
                 <option value="admin">Administration</option>
-                <option value="other_service">Övrigt_tjänst</option>
-                <option value="other_space">Övrigt_utrymme</option>
-                <option value="other_other">Övrigt_övrigt</option>
+                <option value="other_service">Övrigt</option>
                 </select>;
         } else if (nsubcategory=="other_service") {
           subcategoryReturn = <select id="subcategory" ref="subcategory" defaultValue="other_service">
-                <option value="storage">Lager</option>
-                <option value="office">Kontor</option>
                 <option value="admin">Administration</option>
-                <option value="other_service">Övrigt_tjänst</option>
-                <option value="other_space">Övrigt_utrymme</option>
-                <option value="other_other">Övrigt_övrigt</option>
+                <option value="other_service">Övrigt</option>
                 </select>;
         } else if (nsubcategory=="other_space") {
           subcategoryReturn = <select id="subcategory" ref="subcategory" defaultValue="other_space">
                 <option value="storage">Lager</option>
                 <option value="office">Kontor</option>
-                <option value="admin">Administration</option>
-                <option value="other_service">Övrigt_tjänst</option>
-                <option value="other_space">Övrigt_utrymme</option>
-                <option value="other_other">Övrigt_övrigt</option>
+                <option value="other_space">Övrigt</option>
                 </select>;
         } else if (nsubcategory=="other_other") {
           subcategoryReturn = <select id="subcategory" ref="subcategory" defaultValue="other_other">
-                <option value="storage">Lager</option>
-                <option value="office">Kontor</option>
-                <option value="admin">Administration</option>
-                <option value="other_service">Övrigt_tjänst</option>
-                <option value="other_space">Övrigt_utrymme</option>
-                <option value="other_other">Övrigt_övrigt</option>
+                <option value="other_other">Övrigt</option>
                 </select>;
         }
           else {
             subcategoryReturn = <select></select>
           }
+    } else {
+          if (this.state.change == "space") {
+                var subcategoryReturn = <select id="subcategory" ref="subcategory">
+                <option value="storage">Lager</option>
+                <option value="office">Kontor</option>
+                <option value="other_space">Övrigt</option>
+                </select>;
+              } else if (this.state.change == "service") {
+                var subcategoryReturn = <select id="subcategory" ref="subcategory">
+                <option value="admin">Administration</option>
+                <option value="other_service">Övrigt</option>
+                </select>;
+              } else {
+                var subcategoryReturn = <select id="subcategory" ref="subcategory">
+                <option value="other_other">Övrigt</option>
+                </select>;
+              }
+        }
     return (
       <form onSubmit={this.handleSubmit}>
 

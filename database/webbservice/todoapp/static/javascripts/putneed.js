@@ -141,8 +141,6 @@ var NeedForm = React.createClass({
             subcategoryReturn = <select></select>
           }
     } else {
-      console.log("changed");
-      console.log(this.state.change);
           if (this.state.change == "space") {
                 var subcategoryReturn = <select id="subcategory" ref="subcategory">
                 <option value="storage">Lager</option>
@@ -160,7 +158,6 @@ var NeedForm = React.createClass({
                 </select>;
               }
         }
-        console.log("weird");
     return (
       <form onSubmit={this.handleSubmit}>
 
