@@ -126,8 +126,8 @@ var OfferForm = React.createClass({
           tabs = <div><div className="button formtab active">
             <p>Posta erbjudande.</p>
           </div>
-          <div className="button formtab">
-            <p onClick={this.handleClick}>Posta behov.</p>
+          <div className="button formtab" onClick={this.handleClick}>
+            <p>Posta behov.</p>
           </div>
           </div>;
           theForm = <div id="postForm"><div className="row">
@@ -192,8 +192,8 @@ var OfferForm = React.createClass({
         </div>
         </div>;
         } else {
-          tabs = <div><div className="button formtab">
-            <p onClick={this.handleClick}>Posta erbjudande.</p>
+          tabs = <div><div className="button formtab" onClick={this.handleClick}>
+            <p>Posta erbjudande.</p>
           </div>
           <div className="button formtab active">
             <p>Posta behov.</p>
